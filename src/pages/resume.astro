@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+
+const title = `Resume | ${SITE.title}`;
+const resumeUrl = "/resume.pdf";
+---
+
+<Layout title={title}>
+  <Header activeNav="resume" />
+  
+  <main id="main-content" class="app-layout pt-8 pb-12 sm:pt-16 sm:pb-20 flex flex-col items-center">
+    <div class="mb-8 w-full text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+      <h1 class="text-4xl font-bold font-serif italic tracking-tight sm:text-5xl border-b border-border pb-4 inline-block pr-12">
+        <span class="text-accent font-sans not-italic font-normal mr-2">/</span>resume
+      </h1>
+      <a href={resumeUrl} download="Sreehari_Resume.pdf" class="px-5 py-2 rounded-md bg-accent text-white font-medium hover:bg-accent/90 transition-colors flex items-center gap-2 text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- PDF Embed Container -->
+    <div class="w-full h-[75vh] min-h-[600px] border border-border rounded-xl shadow-2xl bg-[#121212] overflow-hidden">
+      <!-- Fallback message shown as placeholder while loading or if object fails -->
+      <object 
+        data={resumeUrl} 
+        type="application/pdf" 
+        class="w-full h-full"
+      >
+        <div class="flex flex-col items-center justify-center p-10 h-full text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text text-foreground/50 mb-4">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" x2="8" y1="13" y2="13"/>
+            <line x1="16" x2="8" y1="17" y2="17"/>
+            <line x1="10" x2="8" y1="9" y2="9"/>
+          </svg>
+          <p class="text-foreground/80 font-sans mb-4 text-lg">Your browser does not support embedding PDFs.</p>
+          <p class="text-foreground/60 text-sm mb-6">But don't worry, you can easily download it to view locally.</p>
+          <a href={resumeUrl} download="Sreehari_Resume.pdf" class="px-6 py-3 rounded-md bg-accent text-white font-medium hover:bg-accent/90 transition-colors">
+            Download Resume
+          </a>
+        </div>
+      </object>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { slugifyStr } from "@/utils/slugify";
+import { getPath } from "@/utils/getPath";
+import Datetime from "./Datetime.astro";
+
+type Props = {
+  variant?: "h2" | "h3";
+} & CollectionEntry<"blog">;
+
+const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+
+const { title, description, tags, ...props } = data;
+---
+
+<li class="my-6">
+  <a
+    href={getPath(id, filePath)}
+    class="group block metal-card metal-card-hover p-6 bg-noise"
+  >
+    <Heading
+      class="text-xl font-medium text-foreground group-hover:text-accent transition-colors"
+      style={{ viewTransitionName: slugifyStr(title.replaceAll(".", "-")) }}
+    >
+      {title}
+    </Heading>
+
+    {tags && tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mt-4 mb-2">
+        {tags.map((tag) => (
+          <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <p class="mt-4 mb-4 text-foreground/70 text-sm leading-relaxed">{description}</p>
+    
+    <div class="mt-4 text-xs opacity-70">
+      <Datetime {...props} />
+    </div>
+  </a>
+</li>

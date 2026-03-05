@@ -1,0 +1,155 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SOCIALS } from "@/constants";
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index" class="app-layout">
+    <section id="hero" class="pt-32 pb-16 sm:pt-40 sm:pb-24 flex flex-col items-center justify-center text-center gap-8 relative z-10">
+      <!-- Centered Typography -->
+      <div class="space-y-6 max-w-4xl">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif italic font-bold leading-tight tracking-tight">
+          Hey, I am Sreehari <span class="text-foreground/30 font-sans font-light px-2">—</span><span class="font-sans not-italic font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[#bffff]">aka Rekd</span>
+        </h1>
+        <h2 class="text-xl sm:text-2xl text-foreground/80 font-sans leading-relaxed tracking-wide">
+          Systems security researcher building <span class="text-accent font-semibold px-1 inline-block border-b-2 border-accent/30 pb-1">kernel-level tools</span> that actually secure.
+        </h2>
+        <p class="text-base sm:text-lg text-foreground/50 font-sans max-w-2xl mx-auto">
+          Building stuff in C, C++, and Go. Obsessed with breaking architectures to make them stronger.
+        </p>
+
+        <!-- Tech Stack Pills -->
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+          <span class="font-mono text-sm px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-foreground/80 shadow-sm flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#3776ab]"></span> C/C++</span>
+          <span class="font-mono text-sm px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-foreground/80 shadow-sm flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#00add8]"></span> Go</span>
+          <span class="font-mono text-sm px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-foreground/80 shadow-sm flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#e6522c]"></span> Rust</span>
+          <span class="font-mono text-sm px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-foreground/80 shadow-sm flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#fbbc05]"></span> eBPF</span>
+        </div>
+
+        <!-- Centered Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-8">
+          <a href="/projects" class="px-8 py-3.5 rounded-full bg-accent text-[#0a0a0a] font-semibold hover:scale-105 hover:shadow-[0_0_20px_#00d2ff40] transition-all duration-300">
+            View Projects
+          </a>
+          <a href="/resume" class="px-8 py-3.5 rounded-full border border-white/10 bg-white/5 text-foreground hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+            View Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Width Terminal Bento -->
+    <section id="terminal-bento" class="pb-16 relative z-10">
+      <div class="w-full">
+        <div class="metal-card rounded-3xl overflow-hidden bg-[#0c0c0c]/80 shadow-2xl ring-1 ring-white/5">
+          <!-- Terminal Header -->
+          <div class="flex items-center px-6 py-4 bg-white/5 border-b border-white/5">
+            <div class="flex space-x-2.5">
+              <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+            </div>
+            <div class="mx-auto text-xs text-foreground/40 font-mono tracking-widest uppercase">ebpf-rekd-trace</div>
+          </div>
+          <!-- Terminal Body -->
+          <div class="p-6 sm:p-8 font-mono text-sm sm:text-base leading-loose min-h-[250px]">
+            <div class="flex items-center gap-2">
+              <span class="text-accent font-semibold">root@sreehari:~/ebpf-rekd$</span>
+              <span class="text-foreground/90 font-semibold inline-block overflow-hidden whitespace-nowrap border-r-2 border-transparent" style="animation: appear 0.1s forwards, type 1s steps(20, end); width: 14ch;">go run main.go</span>
+            </div>
+            <div class="text-[#27c93f] mt-2 animate-appear-2">
+              [+] Attaching fentry to vfs_write... Success.
+            </div>
+            <div class="text-foreground/50 animate-appear-3">
+              [INFO] Ring buffer initialized (16MB). Listening...
+            </div>
+            <div class="text-[#ff5f56] animate-appear-4 font-semibold">
+              [ALERT] PID 8492 (unknown_bin) writing high-entropy data (7.9)
+            </div>
+            <div class="text-[#27c93f] animate-appear-5">
+              [+] Action: SIGKILL sent to PID 8492. Directory locked.
+            </div>
+            <div class="flex items-center mt-2 animate-appear-6">
+              <span class="text-accent font-semibold">root@sreehari:~/ebpf-rekd$</span>
+              <span class="w-2 h-4 bg-foreground/70 ml-2 animate-pulse"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mocked Featured Posts -->
+    <section id="featured" class="pt-12 pb-6 border-b border-border">
+      <h2 class="text-2xl font-serif font-bold tracking-wide mb-6 text-foreground">Featured Research</h2>
+      <ul class="space-y-6">
+        <!-- Post 1 -->
+        <li>
+          <a href="/posts/kernel-level-ransomware-killswitch" class="group block metal-card metal-card-hover p-6 bg-noise">
+            <h3 class="text-xl font-medium text-foreground group-hover:text-accent transition-colors">
+              Kernel-Level Ransomware Killswitch: Intercepting vfs_write with eBPF & Go
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">eBPF</span>
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Go</span>
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Linux Kernel</span>
+            </div>
+            <p class="mt-4 text-foreground/70 text-sm leading-relaxed">Building a high-performance ransomware detector by tracing kernel file operations with eBPF and dropping processes before encryption happens.</p>
+          </a>
+        </li>
+        <!-- Post 2 -->
+        <li>
+          <a href="/posts/150gb-data-leak-idor" class="group block metal-card metal-card-hover p-6 bg-noise">
+            <h3 class="text-xl font-medium text-foreground group-hover:text-accent transition-colors">
+              How I Patched a 150GB Data Leak: The Anatomy of an IDOR
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">AppSec</span>
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Bug Bounty</span>
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Cloudflare</span>
+            </div>
+            <p class="mt-4 text-foreground/70 text-sm leading-relaxed">A deep dive into discovering and remediating a critical Insecure Direct Object Reference vulnerability exposing hundreds of gigabytes of PII.</p>
+          </a>
+        </li>
+        <!-- Post 3 -->
+        <li>
+          <a href="/posts/dns-dangling-pointers" class="group block metal-card metal-card-hover p-6 bg-noise">
+            <h3 class="text-xl font-medium text-foreground group-hover:text-accent transition-colors">
+              DNS Dangling Pointers: Defending University Infrastructure
+            </h3>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Infrastructure</span>
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Networking</span>
+              <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">DNS</span>
+            </div>
+            <p class="mt-4 text-foreground/70 text-sm leading-relaxed">Analyzing subdomain takeover risks dynamically, auditing legacy DNS records, and successfully fortifying institutional infrastructure.</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>
