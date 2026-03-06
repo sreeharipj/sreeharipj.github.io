@@ -17,6 +17,7 @@ One file controls almost everything: **[`src/config.ts`](src/config.ts)**
 | **Hero subtext** (second paragraph) | `src/config.ts` | `IDENTITY.heroSubtext` |
 | **Bio** (About Me card & /hi page) | `src/config.ts` | `IDENTITY.bio` |
 | **Contact email** | `src/config.ts` | `IDENTITY.email` |
+| **Resume PDF** | `public/resume.pdf` | Replace the file |
 | **Tech stack pills** (C/C++, Go...) | `src/config.ts` | `TECH_STACK` array |
 | **"What I do" focus areas** | `src/config.ts` | `FOCUS_AREAS` array |
 | **"Current Interests" bullets** | `src/config.ts` | `INTERESTS` array |
