@@ -1,10 +1,10 @@
 export const SITE = {
-  website: "https://sreehari.github.io/", // replace this with your deployed domain
+  website: "https://sreeharipj.github.io/", // replace this with your deployed domain
   author: "Sreehari",
   profile: "https://github.com/sreeharipj",
   desc: "Systems Security Researcher & Kernel Engineer.",
   title: "Sreehari | Systems Security",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
