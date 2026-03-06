@@ -13,15 +13,16 @@ import { SITE } from "@/config";
     id="main-content"
     class="relative h-screen flex flex-col items-center justify-center overflow-hidden"
   >
-    <canvas id="c" class="absolute inset-0 z-0 h-full w-full opacity-40"></canvas>
+    <!-- Removed object-cover, we will rely on precise JS canvas sizing now -->
+    <canvas id="c" class="absolute inset-0 z-0 opacity-40"></canvas>
     
     <div class="relative z-10 flex flex-col items-center justify-center text-center px-6">
       <h1 class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Error 404</h1>
-      <p class="text-xl font-serif italic mb-8" style="color: var(--foreground)">This coordination does not exist in the current namespace.</p>
+      <p class="text-xl font-serif italic mb-8" style="color: var(--foreground)">fatal error : page does not exists</p>
       
       <div class="flex gap-4">
-        <a href="/" class="text-sm font-mono prose-link">return home</a>
-        <a href="https://github.com/sreeharipj" class="text-sm font-mono prose-link">github</a>
+        <a href="/" class="text-sm font-mono prose-link hover:text-white transition-colors">return home</a>
+        <a href="https://github.com/sreeharipj" class="text-sm font-mono prose-link hover:text-white transition-colors">github</a>
       </div>
     </div>
   </main>
@@ -34,26 +35,39 @@ import { SITE } from "@/config";
     const S = Math.sin;
     let t = 9;
 
+    // Dynamically resize the canvas to perfectly match the browser window
     function resize() {
       c.width = window.innerWidth;
       c.height = window.innerHeight;
     }
 
     window.addEventListener("resize", resize);
-    resize();
+    resize(); // Call once on load
 
     setInterval(() => {
       t += 4;
       ctx.clearRect(0, 0, c.width, c.height);
+      
       const k = 700;
+      
+      // Calculate the exact center of the current screen
+      const centerX = c.width / 2;
+      const centerY = c.height / 2;
+
       for (let i = 700; --i; ) {
-        const m = i + t;
+        let m = i + t;
         ctx.beginPath();
         ctx.fillStyle = `rgb(${i / 3},${i / 3},${i / 3})`;
+        
         const r = (S(t / 60 + m / k) / 2 + 1) * (m % 29 ? 100000 : 20000) / i;
+        m = m * m; 
+        
+        // FIX: Replaced the hardcoded '1400' and '700' coordinates from the 
+        // original snippet with 'centerX' and 'centerY'. 
+        // We add (i - 350) to the X axis to keep the 3D horizontal depth effect.
         ctx.arc(
-          k + i + 700 + r * S(m * m),
-          k + S(m + 11) * r,
+          centerX + (i - 350) + r * S(m), 
+          centerY + S(m + 11) * r,       
           r / 2,
           0,
           7
@@ -68,7 +82,6 @@ import { SITE } from "@/config";
   main {
     background: #050505;
   }
-  /* Ensure header/footer are visible but subtle on 404 */
   :global(header), :global(footer) {
     z-index: 20;
   }
