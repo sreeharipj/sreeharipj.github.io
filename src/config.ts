@@ -37,10 +37,10 @@ export const IDENTITY = {
   firstName: "Sreehari",
 
   /** Your online alias / hacker handle */
-  alias: "Rekd",
+  alias: "sr33hari",
 
   /** Your handle/username shown next to your name */
-  handle: "@rekd",
+  handle: "@sr33hari",
 
   /** Your role title — shown on /hi and the About Me card */
   role: "Systems Security Researcher & Kernel Engineer",
