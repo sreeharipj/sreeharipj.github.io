@@ -178,19 +178,6 @@ const structuredData = {
   </head>
   <body>
     <slot />
-
-    <!-- Vertical Social Sidebar -->
-    <div class="hidden md:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-5 z-40">
-      <div class="w-px h-32 bg-gradient-to-b from-transparent to-border/80"></div>
-      {
-        SOCIALS.map(social => (
-          <a href={social.href} class="text-foreground/40 hover:text-white hover:-translate-y-1 transition-all duration-300" title={social.name} aria-label={social.linkTitle}>
-            <social.icon class="size-[22px]" />
-          </a>
-        ))
-      }
-      <div class="w-px h-32 bg-gradient-to-t from-transparent to-border/80"></div>
-    </div>
     <!-- Load full theme logic -->
     <script src="../scripts/theme.ts"></script>
   </body>

@@ -6,43 +6,42 @@
 /* ─── Light Theme ──────────────────────────────────────────── */
 :root,
 html[data-theme="light"] {
-  --background: #f5f5f7;
-  --foreground: #1a1a2e;
-  --accent: #0062cc;
-  --muted: #dde1eb;
-  --border: #d0d5e0;
+  --background: #fafafa;
+  --foreground: #111111;
+  --accent: #111111;
+  --muted: #e0e0e0;
+  --border: #d4d4d4;
 
-  /* Custom semantic surface layers for light mode */
-  --card-bg: rgba(255, 255, 255, 0.75);
-  --card-border: rgba(0, 0, 0, 0.07);
-  --card-inset: rgba(0, 0, 0, 0.04);
-  --subtle-bg: rgba(0, 0, 0, 0.03);
-  --subtle-border: rgba(0, 0, 0, 0.08);
-  --hover-bg: rgba(0, 0, 0, 0.055);
-  --text-muted: rgba(26, 26, 46, 0.55);
-  --text-faint: rgba(26, 26, 46, 0.35);
+  --card-bg: #ffffff;
+  --card-border: #d4d4d4;
+  --subtle-bg: #f3f3f3;
+  --subtle-border: #e0e0e0;
+  --text-muted: #555555;
+  --text-faint: #999999;
   --accent-btn-fg: #ffffff;
-  --dot-color: rgba(0, 0, 0, 0.06);
+  --accent-color: #111111;
+  --table-stripe: #f7f7f7;
+  --hr-color: #e0e0e0;
 }
 
 /* ─── Dark Theme ───────────────────────────────────────────── */
 html[data-theme="dark"] {
-  --background: #0a0a0a;
-  --foreground: #eaedf3;
-  --accent: #00d2ff;
-  --muted: #343f60;
+  --background: #050505;
+  --foreground: #e8e8e8;
+  --accent: #e8e8e8;
+  --muted: #2a2a2a;
   --border: #222222;
 
-  --card-bg: rgba(18, 18, 18, 0.80);
-  --card-border: rgba(255, 255, 255, 0.05);
-  --card-inset: rgba(255, 255, 255, 0.04);
-  --subtle-bg: rgba(255, 255, 255, 0.03);
-  --subtle-border: rgba(255, 255, 255, 0.07);
-  --hover-bg: rgba(255, 255, 255, 0.06);
-  --text-muted: rgba(234, 237, 243, 0.55);
-  --text-faint: rgba(234, 237, 243, 0.30);
-  --accent-btn-fg: #0a0a0a;
-  --dot-color: rgba(255, 255, 255, 0.04);
+  --card-bg: #0f0f0f;
+  --card-border: #222222;
+  --subtle-bg: #111111;
+  --subtle-border: #1e1e1e;
+  --text-muted: #888888;
+  --text-faint: #555555;
+  --accent-btn-fg: #050505;
+  --accent-color: #e8e8e8;
+  --table-stripe: #0c0c0c;
+  --hr-color: #1e1e1e;
 }
 
 @theme inline {
@@ -60,16 +59,22 @@ html[data-theme="dark"] {
 @layer base {
   * {
     @apply border-border outline-accent/75;
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+    box-sizing: border-box;
   }
 
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    @apply overflow-y-scroll;
   }
 
   body {
-    @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex min-h-svh flex-col bg-background font-app text-foreground;
+  }
+
+  ::selection {
+    background: var(--foreground);
+    color: var(--background);
   }
 
   a,
@@ -81,112 +86,106 @@ html[data-theme="dark"] {
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--hr-color);
+  }
 }
 
 @utility max-w-app {
-  @apply max-w-5xl;
+  max-width: 760px;
 }
 
 @utility app-layout {
-  @apply mx-auto w-full max-w-app px-4;
+  @apply mx-auto w-full px-6;
+  max-width: 760px;
 }
 
-.active-nav {
-  @apply relative;
+/* ─── Research Table ───────────────────────────────────────── */
+.research-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
 }
 
-.active-nav::after {
-  content: '';
-  @apply absolute -bottom-1 left-1/2 w-1.5 h-1.5 bg-accent rounded-full -translate-x-1/2 shadow-[0_0_8px_var(--color-accent)];
+.research-table th {
+  text-align: left;
+  padding: 0.5rem 1rem 0.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
 }
 
-@utility bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+.research-table td {
+  padding: 0.875rem 1rem 0.875rem 0;
+  border-bottom: 1px solid var(--subtle-border);
+  color: var(--text-muted);
+  vertical-align: top;
+  line-height: 1.5;
 }
 
-/* ─── Metal Card: fully theme-responsive ───────────────────── */
-@utility metal-card {
-  @apply relative overflow-hidden rounded-2xl backdrop-blur-sm shadow-lg transition-all duration-300;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: inset 0 0 0 1px var(--card-inset), 0 4px 24px rgba(0, 0, 0, 0.07);
+.research-table tr:last-child td {
+  border-bottom: none;
 }
 
-@utility metal-card-hover {
-  @apply transition-all duration-300;
-}
-
-html[data-theme="dark"] .metal-card-hover:hover {
-  border-color: rgba(0, 210, 255, 0.4);
-  box-shadow: 0 0 20px rgba(0, 210, 255, 0.12);
-}
-
-html[data-theme="light"] .metal-card-hover:hover {
-  border-color: rgba(0, 98, 204, 0.35);
-  box-shadow: 0 0 20px rgba(0, 98, 204, 0.10);
-}
-
-/* ─── Semantic surface helpers used in pages ───────────────── */
-.surface-subtle {
-  background: var(--subtle-bg);
-  border-color: var(--subtle-border);
-}
-
-.surface-hover:hover {
-  background: var(--hover-bg);
-}
-
-/* ─── Terminal Animations ──────────────────────────────────── */
-@keyframes type {
-  from {
-    width: 0;
-    opacity: 1;
-  }
-
-  to {
-    width: 14ch;
-    opacity: 1;
-    border-color: transparent
-  }
-}
-
-@keyframes appear {
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-type-1 {
-  animation: appear 0.1s forwards, type 1s steps(20, end);
+.research-table .col-year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
   white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  width: 14ch;
+  padding-right: 1.5rem;
+  width: 3.5rem;
 }
 
-.animate-appear-2 {
-  opacity: 0;
-  animation: appear 0.1s 1.2s forwards;
+.research-table .col-title a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.animate-appear-3 {
-  opacity: 0;
-  animation: appear 0.1s 1.8s forwards;
+.research-table .col-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.animate-appear-4 {
-  opacity: 0;
-  animation: appear 0.1s 2.6s forwards;
+.research-table .col-stack {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+  width: 10rem;
+  padding-right: 1.5rem;
 }
 
-.animate-appear-5 {
-  opacity: 0;
-  animation: appear 0.1s 3.5s forwards;
+.research-table .col-desc {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
 
-.animate-appear-6 {
-  opacity: 0;
-  animation: appear 0.1s 4.2s forwards;
+/* ─── Active Nav ───────────────────────────────────────────── */
+.active-nav {
+  color: var(--foreground) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─── Prose Links ──────────────────────────────────────────── */
+.prose-link {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+  transition: text-decoration-color 0.2s;
+}
+
+.prose-link:hover {
+  text-decoration-color: var(--foreground);
 }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */

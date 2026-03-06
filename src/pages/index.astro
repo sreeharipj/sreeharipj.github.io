@@ -7,147 +7,141 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import {
   IDENTITY,
   TECH_STACK,
-  FOCUS_AREAS,
-  INTERESTS,
-  FEATURED_POSTS,
+  CURRENT_STATUS,
+  BLOG_POSTS,
+  PROJECTS,
+  SOCIAL_LINKS,
 } from "@/config";
 ---
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index" class="app-layout">
-    <section id="hero" class="pt-32 pb-16 sm:pt-40 sm:pb-24 flex flex-col items-center justify-center text-center gap-8 relative z-10">
-      <div class="space-y-6 max-w-4xl">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif italic font-bold leading-tight tracking-tight">
-          Hey, I am {IDENTITY.firstName} <span class="font-sans font-light px-2" style="color: var(--text-muted)">—</span><span class="font-sans not-italic font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-cyan-400">aka {IDENTITY.alias}</span>
-        </h1>
-        <h2 class="text-xl sm:text-2xl font-sans leading-relaxed tracking-wide" style="color: var(--text-muted)">
-          Systems security researcher building <span class="font-semibold text-accent px-1 inline-block border-b-2 border-accent/30 pb-1">kernel-level tools</span> that actually secure.
-        </h2>
-        <p class="text-base sm:text-lg font-sans max-w-2xl mx-auto" style="color: var(--text-faint)">
-          {IDENTITY.heroSubtext}
-        </p>
+  <main id="main-content" data-layout="index" class="app-layout pt-20 pb-24">
 
-        <!-- Tech Stack Pills -->
-        <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
-          {TECH_STACK.map(tech => (
-            <span class="font-mono text-sm px-4 py-1.5 rounded-full shadow-sm flex items-center gap-2 transition-colors" style="background: var(--subtle-bg); border: 1px solid var(--subtle-border); color: var(--text-muted)">
-              <span class="w-2 h-2 rounded-full" style={`background-color: ${tech.dotColor}`}></span>
-              {tech.label}
-            </span>
-          ))}
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-4 pt-8">
-          <a href="/projects" class="px-8 py-3.5 rounded-full font-semibold hover:scale-105 hover:shadow-[0_0_20px_color-mix(in_srgb,var(--accent)_40%,transparent)] transition-all duration-300" style="background: var(--accent); color: var(--accent-btn-fg)">
-            View Projects
-          </a>
-          <a href="/resume.pdf" class="px-8 py-3.5 rounded-full transition-all duration-300" style="border: 1px solid var(--subtle-border); background: var(--subtle-bg); color: var(--text-muted)">
-            View Resume
-          </a>
-        </div>
-
-        <!-- Short on time CTA -->
-        <div class="pt-6">
-          <a href="/hi" class="group inline-flex items-center gap-2 text-sm transition-colors duration-300" style="color: var(--text-faint)">
-            <span class="font-mono text-accent/70 group-hover:text-accent transition-colors">⚡</span>
-            <span class="border-b border-dashed pb-px transition-colors" style="border-color: var(--subtle-border)">Short on time? Here's the runthrough</span>
-            <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Me Bento Card -->
-    <section id="about-bento" class="pb-16 relative z-10">
-      <div class="metal-card rounded-3xl overflow-hidden">
-        <div class="flex flex-col md:flex-row">
-          <!-- Left: Identity Block -->
-          <div class="md:w-2/5 p-8 sm:p-10 flex flex-col justify-between gap-8" style="border-bottom: 1px solid var(--card-border)">
-            <div>
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent)">
-                <span class="text-3xl font-serif italic font-bold text-accent">{IDENTITY.firstName.charAt(0)}</span>
-              </div>
-              <h2 class="text-2xl sm:text-3xl font-serif italic font-bold mb-2">{IDENTITY.fullName}</h2>
-              <p class="font-mono text-sm tracking-wider mb-4 text-accent">{IDENTITY.handle} · Systems & Security</p>
-              <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-muted)">{IDENTITY.bio}</p>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              {TECH_STACK.map(tech => (
-                <span class="font-mono text-xs px-3 py-1 rounded-full flex items-center gap-1.5" style="border: 1px solid var(--subtle-border); background: var(--subtle-bg); color: var(--text-muted)">
-                  <span class="w-1.5 h-1.5 rounded-full" style={`background-color: ${tech.dotColor}`}></span>
-                  {tech.label}
-                </span>
-              ))}
-            </div>
+    <!-- ─── HERO ─────────────────────────────────────────── -->
+    <section class="py-12 sm:py-16">
+      <div class="flex flex-col sm:flex-row gap-10 sm:gap-16">
+        <!-- Left: Identity -->
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl font-serif italic font-normal mb-1" style="color: var(--foreground)">
+            {IDENTITY.fullName}
+          </h1>
+          <p class="text-sm mb-5" style="color: var(--text-muted)">{IDENTITY.role}</p>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--text-muted); max-width: 38ch">
+            {IDENTITY.heroSubtext}
+          </p>
+          <!-- Links -->
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm" style="color: var(--text-faint)">
+            <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="prose-link hover:opacity-100 transition-opacity">github</a>
+            <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="prose-link hover:opacity-100 transition-opacity">twitter</a>
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="prose-link hover:opacity-100 transition-opacity">linkedin</a>
+            <a href={SOCIAL_LINKS.email} class="prose-link hover:opacity-100 transition-opacity">email</a>
+            <a href="/hi" class="prose-link hover:opacity-100 transition-opacity">short intro →</a>
           </div>
+        </div>
 
-          <!-- Right: Focus Areas Grid -->
-          <div class="md:w-3/5 p-8 sm:p-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="space-y-2">
-              <div class="font-mono text-xs tracking-widest uppercase mb-3 text-accent opacity-60">What I do</div>
-              <div class="space-y-3">
-                {FOCUS_AREAS.map(area => (
-                  <div class="flex items-start gap-3">
-                    <span class="text-accent mt-1 text-xs">▸</span>
-                    <div>
-                      <p class="text-sm font-medium">{area.title}</p>
-                      <p class="text-xs leading-relaxed mt-0.5" style="color: var(--text-faint)">{area.short}</p>
-                    </div>
-                  </div>
-                ))}
+        <!-- Right: Current Status -->
+        <div class="sm:w-56 shrink-0">
+          <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Currently</p>
+          <div class="space-y-3">
+            {CURRENT_STATUS.map(item => (
+              <div>
+                <span class="text-xs font-mono block mb-0.5" style="color: var(--text-faint)">{item.label}</span>
+                <span class="text-sm" style="color: var(--text-muted)">{item.value}</span>
               </div>
-            </div>
-            <div class="space-y-2">
-              <div class="font-mono text-xs tracking-widest uppercase mb-3 text-accent opacity-60">Current Interests</div>
-              <div class="space-y-3">
-                {INTERESTS.map(interest => (
-                  <div class="flex items-start gap-3">
-                    <span class="mt-1 text-xs" style="color: var(--text-faint)">▸</span>
-                    <p class="text-xs leading-relaxed" style="color: var(--text-muted)">{interest}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div class="sm:col-span-2 pt-4" style="border-top: 1px solid var(--card-border)">
-              <a href="/about" class="group inline-flex items-center gap-2 text-xs font-mono tracking-wide transition-colors duration-300" style="color: var(--text-faint)">
-                Full bio →
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Research -->
-    <section id="featured" class="pt-12 pb-6 border-b border-border">
-      <h2 class="text-2xl font-serif font-bold tracking-wide mb-6">Featured Research</h2>
-      <ul class="space-y-6">
-        {FEATURED_POSTS.map(post => (
-          <li>
-            <a href={post.href} class="group block metal-card metal-card-hover p-6 bg-noise">
-              <h3 class="text-xl font-medium group-hover:text-accent transition-colors">
-                {post.title}
-              </h3>
-              <div class="flex flex-wrap gap-2 mt-4">
-                {post.tags.map(tag => (
-                  <span class="font-mono text-xs px-2.5 py-1 rounded-md text-accent" style="background: color-mix(in srgb, var(--accent) 10%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent)">{tag}</span>
-                ))}
-              </div>
-              <p class="mt-4 text-sm leading-relaxed" style="color: var(--text-muted)">{post.excerpt}</p>
-            </a>
-          </li>
+    <hr style="border-color: var(--hr-color)" />
+
+    <!-- ─── PROJECTS TABLE ────────────────── -->
+    <section class="py-10">
+      <h2 class="text-xs font-mono uppercase tracking-widest mb-6" style="color: var(--text-faint)">Selected Projects</h2>
+
+      <!-- Mobile: stacked cards -->
+      <div class="sm:hidden space-y-6">
+        {PROJECTS.map(project => (
+          <div style="border-bottom: 1px solid var(--subtle-border); padding-bottom: 1.25rem">
+            <div class="flex items-baseline gap-3 mb-1">
+              <span class="text-xs font-mono" style="color: var(--text-faint)">{project.year}</span>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-sm font-medium prose-link">{project.title}</a>
+            </div>
+            <p class="text-xs mb-1.5" style="color: var(--text-faint); font-family: var(--font-mono)">{project.stack}</p>
+            <p class="text-xs leading-relaxed" style="color: var(--text-muted)">{project.description}</p>
+          </div>
         ))}
-      </ul>
+      </div>
+
+      <!-- Desktop: table -->
+      <table class="research-table hidden sm:table">
+        <thead>
+          <tr>
+            <th class="col-year">Year</th>
+            <th class="col-title">Project</th>
+            <th class="col-stack">Stack</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {PROJECTS.map(project => (
+            <tr>
+              <td class="col-year">{project.year}</td>
+              <td class="col-title"><a href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a></td>
+              <td class="col-stack">{project.stack}</td>
+              <td class="col-desc">{project.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
 
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+    <hr style="border-color: var(--hr-color)" />
+
+    <!-- ─── WRITING / BLOG POSTS ────────────────── -->
+    <section class="py-10">
+      <h2 class="text-xs font-mono uppercase tracking-widest mb-6" style="color: var(--text-faint)">Writing</h2>
+
+      <div class="space-y-8">
+        {BLOG_POSTS.map(post => (
+          <div class="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+            <span class="text-xs font-mono tabular-nums shrink-0" style="color: var(--text-faint)">{post.year}</span>
+            <div class="flex-1 min-w-0">
+              <a href={post.href} class="text-sm font-medium prose-link block mb-1">
+                {post.title}
+              </a>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted); max-width: 65ch">
+                {post.excerpt}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <LinkButton href="/posts/">
+          All technical writing
+          <IconArrowRight class="inline-block rtl:-rotate-180" />
+        </LinkButton>
+      </div>
+    </section>
+
+    <hr style="border-color: var(--hr-color)" />
+
+    <!-- ─── TECH ──────────────────────────────────────────── -->
+    <section class="py-10">
+      <h2 class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Tools</h2>
+      <div class="flex flex-wrap gap-3">
+        {TECH_STACK.map(tech => (
+          <span class="text-xs font-mono px-2 py-1" style="color: var(--text-muted); border: 1px solid var(--subtle-border)">
+            {tech.label}
+          </span>
+        ))}
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>

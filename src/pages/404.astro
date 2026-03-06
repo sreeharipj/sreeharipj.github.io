@@ -11,20 +11,65 @@ import { SITE } from "@/config";
 
   <main
     id="main-content"
-    class="app-layout flex flex-1 items-center justify-center"
+    class="relative h-screen flex flex-col items-center justify-center overflow-hidden"
   >
-    <div class="mb-14 flex flex-col items-center justify-center">
-      <h1 class="text-9xl font-bold text-accent">404</h1>
-      <span aria-hidden="true">¯\_(ツ)_/¯</span>
-      <p class="mt-4 text-2xl sm:text-3xl">Page Not Found</p>
-      <LinkButton
-        href="/"
-        class="my-6 text-lg underline decoration-dashed underline-offset-8"
-      >
-        Go back home
-      </LinkButton>
+    <canvas id="c" class="absolute inset-0 z-0 h-full w-full opacity-40"></canvas>
+    
+    <div class="relative z-10 flex flex-col items-center justify-center text-center px-6">
+      <h1 class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Error 404</h1>
+      <p class="text-xl font-serif italic mb-8" style="color: var(--foreground)">This coordination does not exist in the current namespace.</p>
+      
+      <div class="flex gap-4">
+        <a href="/" class="text-sm font-mono prose-link">return home</a>
+        <a href="https://github.com/sreeharipj" class="text-sm font-mono prose-link">github</a>
+      </div>
     </div>
   </main>
 
   <Footer />
+
+  <script is:inline>
+    const c = document.getElementById("c");
+    const ctx = c.getContext("2d");
+    const S = Math.sin;
+    let t = 9;
+
+    function resize() {
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    setInterval(() => {
+      t += 4;
+      ctx.clearRect(0, 0, c.width, c.height);
+      const k = 700;
+      for (let i = 700; --i; ) {
+        const m = i + t;
+        ctx.beginPath();
+        ctx.fillStyle = `rgb(${i / 3},${i / 3},${i / 3})`;
+        const r = (S(t / 60 + m / k) / 2 + 1) * (m % 29 ? 100000 : 20000) / i;
+        ctx.arc(
+          k + i + 700 + r * S(m * m),
+          k + S(m + 11) * r,
+          r / 2,
+          0,
+          7
+        );
+        ctx.fill();
+      }
+    }, 40);
+  </script>
 </Layout>
+
+<style>
+  main {
+    background: #050505;
+  }
+  /* Ensure header/footer are visible but subtle on 404 */
+  :global(header), :global(footer) {
+    z-index: 20;
+  }
+</style>

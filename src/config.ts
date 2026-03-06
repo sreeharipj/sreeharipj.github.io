@@ -27,118 +27,148 @@ export const SITE = {
 
 // ============================================================
 //  IDENTITY CONFIG — Your name, alias, tagline, and bio
-//  Edit here to change: name, "aka Rekd", subtitle, short bio
 // ============================================================
 export const IDENTITY = {
-  /** Full display name used on the /hi page and About Me card */
   fullName: "Sreehari P J",
-
-  /** Short first name used in the hero ("Hey, I am Sreehari") */
   firstName: "Sreehari",
 
-  /** Your online alias / hacker handle */
-  alias: "sr33hari",
-
-  /** Your handle/username shown next to your name */
+  /** Shown subtly next to name if you want it, or leave blank */
   handle: "@sr33hari",
 
-  /** Your role title — shown on /hi and the About Me card */
-  role: "Systems Security Researcher & Kernel Engineer",
+  /** Your role title */
+  role: "Security Researcher & Systems Student",
 
-  /** One-liner shown in the hero section */
-  heroTagline: "Systems security researcher building kernel-level tools that actually secure.",
+  /** One-liner under the name in the hero */
+  heroTagline: "Security Researcher & Systems Student.",
 
-  /** Short body text shown under the hero tagline */
+  /** Longer sentence shown under tagline */
   heroSubtext:
-    "Building stuff in C, C++, and Go. Obsessed with breaking architectures to make them stronger.",
+    "Offensive security enthusiast pivoting to low-level systems engineering. Currently exploring Linux Kernel internals and eBPF to build better defensive tooling.",
 
-  /** Longer bio shown on /hi and the About Me bento card */
-  bio: "I build things that operate at the intersection of the OS and adversarial systems — eBPF probes, kernel modules, and security primitives designed for environments that refuse to be compromised. Obsessed with breaking things to understand them.",
+  /** Full bio for About Me card & /hi page */
+  bio: "Offensive security enthusiast pivoting to low-level systems engineering. Currently exploring Linux Kernel internals and eBPF to build better defensive tooling. I enjoy reading papers, breaking things, and occasionally writing about what I find.",
 
   /** Contact email */
   email: "hello@sreeharipj.com",
 } as const;
 
 // ============================================================
-//  TECH STACK — Shown in the hero, About Me card, and /hi page
-//  Dot color is a CSS color string
+//  CURRENT STATUS — Right column of the hero section
+//  Update these regularly to reflect what you're up to
 // ============================================================
-export const TECH_STACK = [
-  { label: "C/C++", dotColor: "#3776ab" },
-  { label: "Go", dotColor: "#00add8" },
-  { label: "Rust", dotColor: "#e6522c" },
-  { label: "eBPF", dotColor: "#fbbc05" },
-  { label: "Linux Kernel", dotColor: "#204ead" },
+export const CURRENT_STATUS = [
+  { label: "Reading", value: "Linux Kernel Development — Robert Love" },
+  { label: "Building", value: "eBPF-based process anomaly detector" },
+  { label: "Learning", value: "Rust for systems programming" },
+  { label: "Location", value: "Kerala, India" },
 ] as const;
 
 // ============================================================
-//  FOCUS AREAS — "What I do" section on /hi and About Me card
+//  TECH STACK — Language/tool pills
+// ============================================================
+export const TECH_STACK = [
+  { label: "C/C++", dotColor: "#888" },
+  { label: "Go", dotColor: "#888" },
+  { label: "Rust", dotColor: "#888" },
+  { label: "eBPF", dotColor: "#888" },
+  { label: "Linux Kernel", dotColor: "#888" },
+] as const;
+
+// ============================================================
+//  FOCUS AREAS — "What I do" section
 // ============================================================
 export const FOCUS_AREAS = [
   {
     emoji: "🔬",
     title: "Kernel Engineering",
-    short: "Tracing & intercepting syscalls with eBPF for zero-overhead behavioral analysis.",
-    long: "eBPF probes, kernel modules, and syscall interception for behavioral analysis at the OS level.",
+    short: "Tracing & intercepting syscalls with eBPF for behavioral analysis.",
+    long: "eBPF probes, kernel modules, and syscall interception for OS-level behavioral analysis.",
   },
   {
     emoji: "🛡️",
     title: "Security Research",
-    short: "Finding & remediating architectural vulns in cloud-native infrastructure.",
+    short: "Finding & remediating architectural vulnerabilities.",
     long: "Identifying and remediating architectural vulnerabilities — from cloud infrastructure to IDOR disclosures.",
   },
   {
     emoji: "⚙️",
     title: "Systems Tooling",
-    short: "Writing high-performance security agents that don't kill machine performance.",
-    long: "High-performance security agents and CLI tools that operate with minimal overhead.",
+    short: "Writing security tooling with a focus on low overhead.",
+    long: "Security agents and CLI tooling built for minimal performance cost.",
   },
 ] as const;
 
 // ============================================================
-//  CURRENT INTERESTS — the bulleted list on "Current Interests"
+//  CURRENT INTERESTS
 // ============================================================
 export const INTERESTS = [
-  "eBPF-based malware detection engines",
+  "eBPF-based process anomaly detection",
   "Hypervisor-level security primitives",
-  "Post-quantum cryptography infrastructure",
-  "Supply-chain attack hardening in CI/CD",
+  "Post-quantum cryptography",
+  "Supply-chain hardening in CI/CD",
 ] as const;
 
 // ============================================================
-//  FEATURED POSTS — Hardcoded on index page and /hi page
-//  These are shown BEFORE real blog posts are published
+//  BLOG POSTS — Writing / research notes
 // ============================================================
-export const FEATURED_POSTS = [
+export const BLOG_POSTS = [
   {
+    year: "2025",
     href: "/posts/kernel-level-ransomware-killswitch",
-    title: "Kernel-Level Ransomware Killswitch: Intercepting vfs_write with eBPF & Go",
+    title: "An eBPF experiment: tracing vfs_write to detect ransomware",
     excerpt:
-      "Building a high-performance ransomware detector by tracing kernel file operations with eBPF and dropping processes before encryption happens.",
-    tags: ["eBPF", "Go", "Linux Kernel"],
+      "An experimental ransomware detector using eBPF to trace vfs_write calls. A learning project in kernel-user space communication.",
   },
   {
+    year: "2025",
     href: "/posts/150gb-data-leak-idor",
-    title: "How I Patched a 150GB Data Leak: The Anatomy of an IDOR",
+    title: "150GB exposed: responsible disclosure of an IDOR",
     excerpt:
-      "A deep dive into discovering and remediating a critical Insecure Direct Object Reference vulnerability exposing hundreds of gigabytes of PII.",
-    tags: ["AppSec", "Bug Bounty", "Cloudflare"],
+      "Discovered and responsibly disclosed an IDOR vulnerability exposing ~150GB of user data. Documented the disclosure process end-to-end.",
   },
   {
+    year: "2024",
     href: "/posts/dns-dangling-pointers",
-    title: "DNS Dangling Pointers: Defending University Infrastructure",
+    title: "DNS dangling pointers in university infrastructure",
     excerpt:
-      "Analyzing subdomain takeover risks dynamically, auditing legacy DNS records, and successfully fortifying institutional infrastructure.",
-    tags: ["Infrastructure", "Networking", "DNS"],
+      "Audited legacy DNS records and identified dangling pointers susceptible to subdomain takeover.",
   },
 ] as const;
 
 // ============================================================
-//  SOCIAL LINKS — Used in the sidebar, footer, and /hi page
+//  PROJECTS — Things I've built
+//  link: can be a GitHub URL or a demo URL
+// ============================================================
+export const PROJECTS = [
+  {
+    year: "2025",
+    title: "ebpf-rekd",
+    description: "eBPF-based process anomaly detector. Attaches fentry probes to vfs_write, scores entropy, and SIGKILLs high-entropy writers.",
+    stack: "Go · eBPF · C",
+    link: "https://github.com/sreeharipj/ebpf-rekd",
+  },
+  {
+    year: "2024",
+    title: "dns-audit",
+    description: "CLI tool to audit subdomain DNS records for dangling pointers and takeover risks across large domains.",
+    stack: "Python · DNS",
+    link: "https://github.com/sreeharipj/dns-audit",
+  },
+  {
+    year: "2024",
+    title: "sreeharipj.github.io",
+    description: "This site. Astro, minimal, academic research-log aesthetic.",
+    stack: "Astro · TypeScript",
+    link: "https://github.com/sreeharipj/sreeharipj.github.io",
+  },
+] as const;
+
+// ============================================================
+//  SOCIAL LINKS
 // ============================================================
 export const SOCIAL_LINKS = {
   github: "https://github.com/sreeharipj",
-  twitter: "https://x.com/sreeharipj",
+  twitter: "https://x.com/sr33hari",
   linkedin: "https://www.linkedin.com/in/sreeharipj/",
   email: `mailto:${IDENTITY.email}`,
 } as const;
