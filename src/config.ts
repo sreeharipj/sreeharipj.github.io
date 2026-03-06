@@ -49,7 +49,7 @@ export const IDENTITY = {
   bio: "Offensive security enthusiast pivoting to low-level systems engineering. Currently exploring Linux Kernel internals and eBPF to build better defensive tooling. I enjoy reading papers, breaking things, and occasionally writing about what I find.",
 
   /** Contact email */
-  email: "hello@sreeharipj.com",
+  email: "sreehari.nitt@gmail.com",
 } as const;
 
 // ============================================================
