@@ -57,7 +57,11 @@ import { SITE } from "@/config";
       for (let i = 700; --i; ) {
         let m = i + t;
         ctx.beginPath();
-        ctx.fillStyle = `rgb(${i / 3},${i / 3},${i / 3})`;
+        
+        // Detect current theme from the HTML attribute
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        const brightness = isDark ? (i / 3) : (255 - (i / 3));
+        ctx.fillStyle = `rgb(${brightness},${brightness},${brightness})`;
         
         const r = (S(t / 60 + m / k) / 2 + 1) * (m % 29 ? 100000 : 20000) / i;
         m = m * m; 
@@ -80,7 +84,7 @@ import { SITE } from "@/config";
 
 <style>
   main {
-    background: #050505;
+    background: var(--background);
   }
   :global(header), :global(footer) {
     z-index: 20;
