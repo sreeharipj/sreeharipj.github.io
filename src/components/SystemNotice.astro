@@ -1,0 +1,79 @@
+---
+---
+
+<div
+  id="system-notice"
+  class="fixed inset-0 z-[100] flex items-center justify-center bg-background/40 backdrop-blur-2xl transition-all duration-1000 ease-out"
+>
+  <div
+    class="relative z-10 flex flex-col items-center justify-center text-center px-10 py-16 max-w-2xl"
+  >
+    <h2
+      class="text-xs sm:text-sm font-mono uppercase tracking-[0.4em] mb-12"
+      style="color: var(--text-faint)"
+    >
+      system notice
+    </h2>
+
+    <div class="mb-16">
+      <p
+        class="text-3xl sm:text-5xl font-serif italic mb-4"
+        style="color: var(--foreground)"
+      >
+        portfolio currently under construction
+      </p>
+      <p class="text-xs sm:text-sm font-mono opacity-80 uppercase tracking-widest" style="color: var(--text-muted)">
+        some sections may be incomplete.
+      </p>
+    </div>
+
+    <button
+      id="enter-site"
+      class="text-base font-mono prose-link cursor-pointer"
+    >
+      [ enter site ]
+    </button>
+  </div>
+</div>
+
+<style>
+  #system-notice.dismissed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    backdrop-filter: blur(0px);
+  }
+
+  /* Force font-serif for consistent italic look */
+  p {
+    font-family: var(--font-serif);
+  }
+</style>
+
+<script>
+  function initSystemNotice() {
+    const notice = document.getElementById("system-notice");
+    const enterBtn = document.getElementById("enter-site");
+
+    if (!notice || !enterBtn) return;
+
+    // Check if user has already entered
+    if (sessionStorage.getItem("system-notice-dismissed") === "true") {
+      notice.classList.add("dismissed");
+      return;
+    }
+
+    // Lock scroll immediately
+    document.body.style.overflow = "hidden";
+
+    enterBtn.addEventListener("click", () => {
+      notice.classList.add("dismissed");
+      document.body.style.overflow = "";
+      sessionStorage.setItem("system-notice-dismissed", "true");
+    });
+  }
+
+  // Initialize
+  initSystemNotice();
+  document.addEventListener("astro:page-load", initSystemNotice);
+</script>
