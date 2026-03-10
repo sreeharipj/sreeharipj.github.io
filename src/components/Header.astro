@@ -38,17 +38,17 @@ const isActive = (path: string) => {
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden sm:flex items-center gap-6">
-      <a href="/posts" class:list={["text-sm transition-colors", isActive("/posts") ? "active-nav" : "text-foreground opacity-50 hover:opacity-100"]}>posts</a>
-      <a href="/about" class:list={["text-sm transition-colors", isActive("/about") ? "active-nav" : "text-foreground opacity-50 hover:opacity-100"]}>about</a>
-      <a href="/resume.pdf" class:list={["text-sm transition-colors", "text-foreground opacity-50 hover:opacity-100"]}>resume ↗</a>
+    <nav class="hidden sm:flex items-center gap-2">
+      <a href="/posts" class:list={["px-2 py-1 text-sm transition-colors", isActive("/posts") ? "active-nav" : "text-foreground opacity-50 hover:opacity-100"]}>posts</a>
+      <a href="/about" class:list={["px-2 py-1 text-sm transition-colors", isActive("/about") ? "active-nav" : "text-foreground opacity-50 hover:opacity-100"]}>about</a>
+      <a href="/resume.pdf" class:list={["px-2 py-1 text-sm transition-colors", "text-foreground opacity-50 hover:opacity-100"]}>resume ↗</a>
     </nav>
 
     <!-- Right: search + theme toggle + mobile menu -->
     <div class="flex items-center gap-3">
       <LinkButton
         href="/search"
-        class:list={["focus-outline flex p-1 opacity-50 hover:opacity-100 transition-opacity", { "opacity-100": isActive("/search") }]}
+        class:list={["focus-outline flex p-2 opacity-50 hover:opacity-100 transition-opacity", { "opacity-100": isActive("/search") }]}
         title="Search"
         aria-label="search"
       >
@@ -59,7 +59,7 @@ const isActive = (path: string) => {
       {SITE.lightAndDarkMode && (
         <button
           id="theme-btn"
-          class="focus-outline relative size-8 p-1.5 opacity-50 hover:opacity-100 transition-opacity"
+          class="focus-outline relative size-8 p-2 opacity-50 hover:opacity-100 transition-opacity"
           title="Toggles light & dark"
           aria-label="auto"
           aria-live="polite"
@@ -72,7 +72,7 @@ const isActive = (path: string) => {
       <!-- Mobile menu button -->
       <button
         id="menu-btn"
-        class="focus-outline p-1 sm:hidden opacity-50 hover:opacity-100 transition-opacity"
+        class="focus-outline p-2 sm:hidden opacity-50 hover:opacity-100 transition-opacity"
         aria-label="Open Menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -85,10 +85,10 @@ const isActive = (path: string) => {
 
   <!-- Mobile dropdown -->
   <div id="mobile-menu" class="hidden sm:hidden border-t" style="border-color: var(--border); background: var(--background)">
-    <div class="px-6 py-4 flex flex-col gap-4">
-      <a href="/posts" class:list={["text-sm", isActive("/posts") ? "active-nav" : "opacity-50"]}>posts</a>
-      <a href="/about" class:list={["text-sm", isActive("/about") ? "active-nav" : "opacity-50"]}>about</a>
-      <a href="/resume.pdf" class="text-sm opacity-50">resume ↗</a>
+    <div class="px-6 py-4 flex flex-col gap-2">
+      <a href="/posts" class:list={["px-2 py-2 text-sm", isActive("/posts") ? "active-nav" : "opacity-50"]}>posts</a>
+      <a href="/about" class:list={["px-2 py-2 text-sm", isActive("/about") ? "active-nav" : "opacity-50"]}>about</a>
+      <a href="/resume.pdf" class="px-2 py-2 text-sm opacity-50">resume ↗</a>
     </div>
   </div>
 </header>

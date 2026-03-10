@@ -67,6 +67,7 @@ export default defineConfig({
         fallbacks: ["serif"],
         weights: [400],
         styles: ["normal", "italic"],
+        display: "swap",
       },
       {
         name: "Space Grotesk",
@@ -75,6 +76,7 @@ export default defineConfig({
         fallbacks: ["sans-serif"],
         weights: [300, 400, 500, 600, 700],
         styles: ["normal"],
+        display: "swap",
       },
       {
         name: "IBM Plex Mono",
@@ -83,6 +85,7 @@ export default defineConfig({
         fallbacks: ["monospace"],
         weights: [400, 500],
         styles: ["normal", "italic"],
+        display: "swap",
       },
     ],
   },

@@ -17,7 +17,7 @@ html[data-theme="light"] {
   --subtle-bg: #f3f3f3;
   --subtle-border: #e0e0e0;
   --text-muted: #555555;
-  --text-faint: #999999;
+  --text-faint: #707070;
   --accent-btn-fg: #ffffff;
   --accent-color: #111111;
   --table-stripe: #f7f7f7;
@@ -38,7 +38,7 @@ html[data-theme="dark"] {
   --subtle-bg: #111111;
   --subtle-border: #1e1e1e;
   --text-muted: #888888;
-  --text-faint: #555555;
+  --text-faint: #888888;
   --accent-btn-fg: #050505;
   --accent-color: #e8e8e8;
   --table-stripe: #0c0c0c;

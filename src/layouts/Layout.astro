@@ -175,6 +175,22 @@ const structuredData = {
         };
       })();
     </script>
+
+    <!-- Inline critical CSS to prevent FOUC -->
+    <style is:inline>
+      html[data-theme="dark"] {
+        --background: #050505;
+        --foreground: #e8e8e8;
+      }
+      html[data-theme="light"] {
+        --background: #fafafa;
+        --foreground: #111111;
+      }
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+      }
+    </style>
   </head>
   <body>
     <slot />
