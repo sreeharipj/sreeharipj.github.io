@@ -1,3 +1,5 @@
+---
+
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -22,6 +24,7 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
   title: post.data.title,
   excerpt: post.data.description,
 }));
+
 ---
 
 <Layout title={`Hi, I'm ${IDENTITY.firstName} | ${IDENTITY.handle}`} description={`Quick introduction to ${IDENTITY.fullName} — ${IDENTITY.role}.`}>
