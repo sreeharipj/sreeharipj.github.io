@@ -132,7 +132,7 @@ I reported the issue. The fix was straightforward:
 
 The fix is confirmed. The bucket is locked down.
 
-They didn't reply to my disclosure. That's a bit disappointing — not for recognition, but because a simple acknowledgment matters when someone takes the time to report responsibly. I deleted all files I had downloaded (which was only the index listing, not the actual data files) and I'm not sharing any bucket contents here.
+They didn't reply to my disclosure. That's a bit disappointing — not for recognition, but because a simple acknowledgment matters when someone takes the time to report responsibly. I deleted all files I had downloaded ( which was some photos to make sure its not placeholder info) and I'm not sharing any bucket contents here.
 
 ---
 

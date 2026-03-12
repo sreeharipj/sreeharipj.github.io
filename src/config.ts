@@ -121,15 +121,15 @@ export const BLOG_POSTS = [
   },
   {
     year: "2025",
-    href: "/posts/150gb-data-leak-idor",
-    title: "150GB exposed: responsible disclosure of an IDOR",
+    href: "/posts/150gb-data-leak-bucket",
+    title: "How I Found a 150GB Data Leak on a Dating App",
     excerpt:
-      "Discovered and responsibly disclosed an IDOR vulnerability exposing ~150GB of user data. Documented the disclosure process end-to-end.",
+      "Documenting an 150GB Data Leak on a Dating App without even having an Account ",
   },
   {
     year: "2024",
     href: "/posts/dns-dangling-pointers",
-    title: "DNS dangling pointers in university infrastructure",
+    title: "A Gambling website took down my colleges subdomain",
     excerpt:
       "Audited legacy DNS records and identified dangling pointers susceptible to subdomain takeover.",
   },

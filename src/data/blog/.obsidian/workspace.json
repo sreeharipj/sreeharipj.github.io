@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "150gb-data-leak-bucket.md",
+                "file": "dns-dangling-pointers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "150gb-data-leak-bucket"
+              "title": "dns-dangling-pointers"
             }
           }
         ]
@@ -184,5 +184,7 @@
     }
   },
   "active": "c3a9ec10536e9850",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "150gb-data-leak-bucket.md"
+  ]
 }
