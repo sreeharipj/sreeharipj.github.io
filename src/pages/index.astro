@@ -1,18 +1,29 @@
----
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import SystemNotice from "@/components/SystemNotice.astro";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { getCollection } from "astro:content";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { getPath } from "@/utils/getPath";
 import {
   IDENTITY,
   TECH_STACK,
   CURRENT_STATUS,
-  BLOG_POSTS,
   PROJECTS,
   SOCIAL_LINKS,
+  SITE,
 } from "@/config";
+
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
+  year: new Date(post.data.pubDatetime).getFullYear(),
+  href: getPath(post.id, post.filePath),
+  title: post.data.title,
+  excerpt: post.data.description,
+}));
 ---
 
 <Layout>
@@ -108,7 +119,7 @@ import {
       <h2 class="text-xs font-mono uppercase tracking-widest mb-6" style="color: var(--text-faint)">Writing</h2>
 
       <div class="space-y-8">
-        {BLOG_POSTS.map(post => (
+        {recentPosts.map(post => (
           <div class="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
             <span class="text-xs font-mono tabular-nums shrink-0" style="color: var(--text-faint)">{post.year}</span>
             <div class="flex-1 min-w-0">

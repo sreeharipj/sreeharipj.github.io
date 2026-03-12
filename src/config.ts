@@ -109,33 +109,6 @@ export const INTERESTS = [
 ] as const;
 
 // ============================================================
-//  BLOG POSTS — Writing / research notes
-// ============================================================
-export const BLOG_POSTS = [
-  {
-    year: "2025",
-    href: "/posts/kernel-level-ransomware-killswitch",
-    title: "An eBPF experiment: tracing vfs_write to detect ransomware",
-    excerpt:
-      "An experimental ransomware detector using eBPF to trace vfs_write calls. A learning project in kernel-user space communication.",
-  },
-  {
-    year: "2025",
-    href: "/posts/150gb-data-leak-bucket",
-    title: "How I Found a 150GB Data Leak on a Dating App",
-    excerpt:
-      "Documenting an 150GB Data Leak on a Dating App without even having an Account ",
-  },
-  {
-    year: "2024",
-    href: "/posts/dns-dangling-pointers",
-    title: "A Gambling website took down my colleges subdomain",
-    excerpt:
-      "Audited legacy DNS records and identified dangling pointers susceptible to subdomain takeover.",
-  },
-] as const;
-
-// ============================================================
 //  PROJECTS — Things I've built
 //  link: can be a GitHub URL or a demo URL
 // ============================================================

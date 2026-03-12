@@ -1,16 +1,27 @@
----
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import { getCollection } from "astro:content";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { getPath } from "@/utils/getPath";
 import {
   IDENTITY,
   TECH_STACK,
   CURRENT_STATUS,
   FOCUS_AREAS,
-  BLOG_POSTS,
   PROJECTS,
   SOCIAL_LINKS,
+  SITE,
 } from "@/config";
+
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
+  year: new Date(post.data.pubDatetime).getFullYear(),
+  href: getPath(post.id, post.filePath),
+  title: post.data.title,
+  excerpt: post.data.description,
+}));
 ---
 
 <Layout title={`Hi, I'm ${IDENTITY.firstName} | ${IDENTITY.handle}`} description={`Quick introduction to ${IDENTITY.fullName} — ${IDENTITY.role}.`}>
@@ -93,7 +104,7 @@ import {
       <div class="mb-10">
         <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Writing</p>
         <div class="space-y-5">
-          {BLOG_POSTS.map(post => (
+          {recentPosts.map(post => (
             <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--subtle-border)">
               <div class="flex items-baseline gap-3 mb-1">
                 <span class="text-xs font-mono" style="color: var(--text-faint)">{post.year}</span>
