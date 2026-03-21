@@ -4,7 +4,7 @@
   "version": "5.5.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist && cp -r dist/pagefind public/ && mv dist/sitemap-0.xml dist/sitemap.xml && rm -f dist/sitemap-index.xml",
+    "build": "astro build && pagefind --site dist && cp -r dist/pagefind public/",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.18.1",
