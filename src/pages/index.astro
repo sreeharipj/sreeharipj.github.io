@@ -4,7 +4,6 @@ import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import SystemNotice from "@/components/SystemNotice.astro";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { getCollection } from "astro:content";
 import getSortedPosts from "@/utils/getSortedPosts";
@@ -30,7 +29,6 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 ---
 
 <Layout>
-  <SystemNotice />
   <Header />
   <main id="main-content" data-layout="index" class="app-layout pt-20 pb-24">
     <div class="fixed inset-0 z-[-1] pointer-events-none bg-[radial-gradient(circle,var(--dot-color)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
