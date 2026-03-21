@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sreeharipj.github.io/sitemap.xml
