@@ -9,12 +9,17 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { remarkObsidianImage } from "./src/utils/remark-obsidian-image";
+import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  integrations: [],
+  integrations: [
+    sitemap({
+      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+    }),
+  ],
   markdown: {
     remarkPlugins: [
       remarkObsidianImage,
