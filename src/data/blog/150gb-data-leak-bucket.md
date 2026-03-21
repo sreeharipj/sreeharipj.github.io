@@ -12,8 +12,6 @@ tags:
 description: "A story of idle curiosity, a CloudFront XML page, and an unauthenticated S3 bucket exposing 150GB of user data from knot.dating."
 ---
 
-<meta name="google-site-verification" content="hYWZ4QUC82ZXoTu2G_4p3S1EA80pg2z_XFxafHa-ZBc" />
-
 ## It Started With Boredom
 
 I stumbled across **knot.dating** — a new Indian dating startup that had been making some noise. I didn't have an account. I wasn't planning on making one. But I had Burp Suite open, and that was enough of a reason to poke around.
