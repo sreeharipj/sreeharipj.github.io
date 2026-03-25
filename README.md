@@ -1,11 +1,11 @@
 # Sreehari | Systems Security Student 
 
-Personal portfolio and blog built with Astro and tailored for a "Systems/Kernel Engineer" aesthetic and SPEED.
-
-
-
+Personal portfolio and blog built with Astro (i love it)
 This website was made with help of "Antigravity from Google"
+do read the blogs:)
 
-The blogs and meta data are AI generated and are not to be taken seriously, sorry for the AI slop.
+inpired from various portfolio websites :)
+do also check out https://sreehari.pages.dev/ (web page under 1 KB)
+* 404 is inspired from that
 
-Work in progress regarding to anti-cluttering
+Work in progress regarding to slop anti-cluttering
