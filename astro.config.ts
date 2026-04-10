@@ -55,6 +55,35 @@ export default defineConfig({
       }),
     },
   },
+  fonts: [
+    {
+      name: "Instrument Serif",
+      cssVariable: "--font-instrument-serif",
+      provider: fontProviders.google(),
+      fallbacks: ["serif"],
+      weights: [400],
+      styles: ["normal", "italic"],
+      display: "swap",
+    },
+    {
+      name: "Space Grotesk",
+      cssVariable: "--font-space-grotesk",
+      provider: fontProviders.google(),
+      fallbacks: ["sans-serif"],
+      weights: [300, 400, 500, 600, 700],
+      styles: ["normal"],
+      display: "swap",
+    },
+    {
+      name: "IBM Plex Mono",
+      cssVariable: "--font-ibm-plex-mono",
+      provider: fontProviders.google(),
+      fallbacks: ["monospace"],
+      weights: [400, 500],
+      styles: ["normal", "italic"],
+      display: "swap",
+    },
+  ],
 
   adapter: cloudflare(),
 });

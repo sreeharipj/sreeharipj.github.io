@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
@@ -61,6 +62,20 @@ const structuredData = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Load Font -->
+    <Font
+      cssVariable="--font-instrument-serif"
+      preload={[{ subset: "latin", weight: 400, style: "italic" }]}
+    />
+    <Font
+      cssVariable="--font-space-grotesk"
+      preload={[{ subset: "latin", weight: 400, style: "normal" }]}
+    />
+    <Font
+      cssVariable="--font-ibm-plex-mono"
+      preload={[{ subset: "latin", weight: 400, style: "normal" }]}
+    />
 
     <!-- General Meta Tags -->
     <title>{title}</title>
