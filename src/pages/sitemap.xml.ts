@@ -8,7 +8,7 @@ export async function GET() {
     const posts = await getCollection("blog", postFilter);
     const tags = getUniqueTags(posts);
 
-    const siteUrl = SITE.website;
+    const siteUrl = "https://sreeharipj.github.io/";
 
     const staticPages = [
         "",

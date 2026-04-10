@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.8",
     "@astrojs/rss": "^4.0.14",
-    "@resvg/resvg-js": "^2.6.2",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^6.1.5",
     "dayjs": "^1.11.19",
@@ -26,7 +26,8 @@
     "sharp": "^0.34.5",
     "slugify": "^1.6.6",
     "tailwindcss": "^4.1.18",
-    "unist-util-visit": "^5.1.0"
+    "unist-util-visit": "^5.1.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
