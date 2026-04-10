@@ -16,11 +16,9 @@ export const SITE = {
   showBackButton: true,
   editPost: {
     enabled: false,
-    text: "Edit page",
     url: "https://github.com/sreeharipj/sreeharipj.github.io/edit/main/",
   },
   dynamicOgImage: true,
-  dir: "ltr",
   lang: "en",
   timezone: "Asia/Kolkata",
 } as const;

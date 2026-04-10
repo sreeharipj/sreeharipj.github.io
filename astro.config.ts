@@ -11,8 +11,6 @@ import { transformerFileName } from "./src/utils/transformers/fileName";
 import { remarkObsidianImage } from "./src/utils/remark-obsidian-image";
 import { SITE } from "./src/config";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -55,6 +53,7 @@ export default defineConfig({
       }),
     },
   },
+
   fonts: [
     {
       name: "Instrument Serif",
@@ -84,6 +83,4 @@ export default defineConfig({
       display: "swap",
     },
   ],
-
-  adapter: cloudflare(),
 });

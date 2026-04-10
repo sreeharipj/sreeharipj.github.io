@@ -13,9 +13,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.8",
     "@astrojs/rss": "^4.0.14",
-    "@resvg/resvg-wasm": "^2.6.2",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^6.1.5",
     "dayjs": "^1.11.19",
@@ -31,6 +30,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@astrojs/node": "^10.0.4",
     "@pagefind/default-ui": "^1.4.0",
     "@shikijs/transformers": "^3.20.0",
     "@tailwindcss/typography": "^0.5.19",
