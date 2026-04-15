@@ -113,10 +113,10 @@ export const INTERESTS = [
 export const PROJECTS = [
   {
     year: "2025",
-    title: "ebpf-rekd",
+    title: "rekd",
     description: "eBPF-based process anomaly detector. Attaches fentry probes to vfs_write, scores entropy, and SIGKILLs high-entropy writers.",
     stack: "Go · eBPF · C",
-    link: "https://github.com/sreeharipj/ebpf-rekd",
+    link: "https://github.com/SpiderNitt/rekd",
   },
 ] as const;
 
