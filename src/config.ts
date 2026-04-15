@@ -118,20 +118,6 @@ export const PROJECTS = [
     stack: "Go · eBPF · C",
     link: "https://github.com/sreeharipj/ebpf-rekd",
   },
-  {
-    year: "2024",
-    title: "dns-audit",
-    description: "CLI tool to audit subdomain DNS records for dangling pointers and takeover risks across large domains.",
-    stack: "Python · DNS",
-    link: "https://github.com/sreeharipj/dns-audit",
-  },
-  {
-    year: "2024",
-    title: "sreeharipj.github.io",
-    description: "This site. Astro, minimal, academic research-log aesthetic.",
-    stack: "Astro · TypeScript",
-    link: "https://github.com/sreeharipj/sreeharipj.github.io",
-  },
 ] as const;
 
 // ============================================================
