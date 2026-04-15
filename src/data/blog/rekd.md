@@ -104,6 +104,9 @@ Two gates:
 
 Both gates must be satisfied at the same time. When they are, the Go daemon issues a `SIGKILL`.
 
+
+(* We are thinking of adding a more robust statistical approach here, than increasing the feature space)
+
 ---
 
 ## The Go Rewrite
