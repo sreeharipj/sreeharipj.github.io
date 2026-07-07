@@ -23,9 +23,9 @@ export const GET: APIRoute = async () => {
     p => `- [${p.title}](${p.link}): ${p.description} — Stack: ${p.stack}`
   ).join("\n");
 
-  const focusLines = FOCUS_AREAS.map(
-    f => `- **${f.title}**: ${f.long}`
-  ).join("\n");
+  const focusLines = FOCUS_AREAS.map(f => `- **${f.title}**: ${f.long}`).join(
+    "\n"
+  );
 
   const interestLines = INTERESTS.map(i => `- ${i}`).join("\n");
 

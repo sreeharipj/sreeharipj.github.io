@@ -1,5 +1,4 @@
 ---
-
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -24,26 +23,58 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
   title: post.data.title,
   excerpt: post.data.description,
 }));
-
 ---
 
-<Layout title={`Hi, I'm ${IDENTITY.firstName} | ${IDENTITY.handle}`} description={`Quick introduction to ${IDENTITY.fullName} — ${IDENTITY.role}.`}>
+<Layout
+  title={`Hi, I'm ${IDENTITY.firstName} | ${IDENTITY.handle}`}
+  description={`Quick introduction to ${IDENTITY.fullName} — ${IDENTITY.role}.`}
+>
   <Header />
   <main id="main-content" class="app-layout pt-20 pb-24">
-    <div class="fixed inset-0 z-[-1] pointer-events-none bg-[radial-gradient(circle,var(--dot-color)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
+    <div
+      class="pointer-events-none fixed inset-0 z-[-1] bg-[radial-gradient(circle,var(--dot-color)_1px,transparent_1px)] bg-[length:24px_24px]"
+    >
+    </div>
 
     <section class="py-12 sm:py-16">
       <!-- Name + Role -->
-      <h1 class="text-2xl font-serif italic font-normal mb-1">{IDENTITY.fullName}</h1>
-      <p class="text-sm mb-6" style="color: var(--text-muted)">{IDENTITY.role} · {IDENTITY.handle}</p>
+      <h1 class="mb-1 font-serif text-2xl font-normal italic">
+        {IDENTITY.fullName}
+      </h1>
+      <p class="mb-6 text-sm" style="color: var(--text-muted)">
+        {IDENTITY.role} · {IDENTITY.handle}
+      </p>
 
-      <p class="text-sm leading-relaxed mb-8" style="color: var(--text-muted); max-width: 46ch">{IDENTITY.bio}</p>
+      <p
+        class="mb-8 text-sm leading-relaxed"
+        style="color: var(--text-muted); max-width: 46ch"
+      >
+        {IDENTITY.bio}
+      </p>
 
       <!-- Links row -->
-      <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm mb-10" style="color: var(--text-faint)">
-        <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="prose-link">github</a>
-        <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="prose-link">twitter</a>
-        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="prose-link">linkedin</a>
+      <div
+        class="mb-10 flex flex-wrap gap-x-5 gap-y-2 text-sm"
+        style="color: var(--text-faint)"
+      >
+        <a
+          href={SOCIAL_LINKS.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="prose-link">github</a
+        >
+        <a
+          href={SOCIAL_LINKS.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="prose-link">twitter</a
+        >
+        <a
+          href={SOCIAL_LINKS.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="prose-link">linkedin</a
+        >
         <a href={SOCIAL_LINKS.email} class="prose-link">email</a>
         <a href="/resume.pdf" class="prose-link">resume ↗</a>
         <a href="/" class="prose-link">← back to site</a>
@@ -53,14 +84,26 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 
       <!-- Currently -->
       <div class="mb-10">
-        <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Currently</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {CURRENT_STATUS.map(item => (
-            <div class="flex gap-3 text-sm">
-              <span class="font-mono text-xs w-16 shrink-0 mt-0.5" style="color: var(--text-faint)">{item.label}</span>
-              <span style="color: var(--text-muted)">{item.value}</span>
-            </div>
-          ))}
+        <p
+          class="mb-4 font-mono text-xs tracking-widest uppercase"
+          style="color: var(--text-faint)"
+        >
+          Currently
+        </p>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {
+            CURRENT_STATUS.map(item => (
+              <div class="flex gap-3 text-sm">
+                <span
+                  class="mt-0.5 w-16 shrink-0 font-mono text-xs"
+                  style="color: var(--text-faint)"
+                >
+                  {item.label}
+                </span>
+                <span style="color: var(--text-muted)">{item.value}</span>
+              </div>
+            ))
+          }
         </div>
       </div>
 
@@ -68,17 +111,26 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 
       <!-- What I focus on -->
       <div class="mb-10">
-        <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Focus</p>
+        <p
+          class="mb-4 font-mono text-xs tracking-widest uppercase"
+          style="color: var(--text-faint)"
+        >
+          Focus
+        </p>
         <div class="space-y-4">
-          {FOCUS_AREAS.map(area => (
-            <div class="flex gap-3 text-sm">
-              <span class="text-base w-8 shrink-0">{area.emoji}</span>
-              <div>
-                <span class="font-medium" style="color: var(--foreground)">{area.title}</span>
-                <span style="color: var(--text-muted)"> — {area.short}</span>
+          {
+            FOCUS_AREAS.map(area => (
+              <div class="flex gap-3 text-sm">
+                <span class="w-8 shrink-0 text-base">{area.emoji}</span>
+                <div>
+                  <span class="font-medium" style="color: var(--foreground)">
+                    {area.title}
+                  </span>
+                  <span style="color: var(--text-muted)"> — {area.short}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
@@ -86,18 +138,47 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 
       <!-- Projects -->
       <div class="mb-10">
-        <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Projects</p>
+        <p
+          class="mb-4 font-mono text-xs tracking-widest uppercase"
+          style="color: var(--text-faint)"
+        >
+          Projects
+        </p>
         <div class="space-y-5">
-          {PROJECTS.map(project => (
-            <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--subtle-border)">
-              <div class="flex items-baseline gap-3 mb-1">
-                <span class="text-xs font-mono" style="color: var(--text-faint)">{project.year}</span>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-sm font-medium prose-link">{project.title}</a>
+          {
+            PROJECTS.map(project => (
+              <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--subtle-border)">
+                <div class="mb-1 flex items-baseline gap-3">
+                  <span
+                    class="font-mono text-xs"
+                    style="color: var(--text-faint)"
+                  >
+                    {project.year}
+                  </span>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="prose-link text-sm font-medium"
+                  >
+                    {project.title}
+                  </a>
+                </div>
+                <p
+                  class="mb-1 text-xs"
+                  style="color: var(--text-faint); font-family: var(--font-mono)"
+                >
+                  {project.stack}
+                </p>
+                <p
+                  class="text-xs leading-relaxed"
+                  style="color: var(--text-muted)"
+                >
+                  {project.description}
+                </p>
               </div>
-              <p class="text-xs mb-1" style="color: var(--text-faint); font-family: var(--font-mono)">{project.stack}</p>
-              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">{project.description}</p>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
@@ -105,17 +186,36 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 
       <!-- Research / Writing -->
       <div class="mb-10">
-        <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Writing</p>
+        <p
+          class="mb-4 font-mono text-xs tracking-widest uppercase"
+          style="color: var(--text-faint)"
+        >
+          Writing
+        </p>
         <div class="space-y-5">
-          {recentPosts.map(post => (
-            <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--subtle-border)">
-              <div class="flex items-baseline gap-3 mb-1">
-                <span class="text-xs font-mono" style="color: var(--text-faint)">{post.year}</span>
-                <a href={post.href} class="text-sm font-medium prose-link">{post.title}</a>
+          {
+            recentPosts.map(post => (
+              <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--subtle-border)">
+                <div class="mb-1 flex items-baseline gap-3">
+                  <span
+                    class="font-mono text-xs"
+                    style="color: var(--text-faint)"
+                  >
+                    {post.year}
+                  </span>
+                  <a href={post.href} class="prose-link text-sm font-medium">
+                    {post.title}
+                  </a>
+                </div>
+                <p
+                  class="text-xs leading-relaxed"
+                  style="color: var(--text-muted)"
+                >
+                  {post.excerpt}
+                </p>
               </div>
-              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">{post.excerpt}</p>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
@@ -123,17 +223,26 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 
       <!-- Tools -->
       <div>
-        <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color: var(--text-faint)">Tools</p>
+        <p
+          class="mb-4 font-mono text-xs tracking-widest uppercase"
+          style="color: var(--text-faint)"
+        >
+          Tools
+        </p>
         <div class="flex flex-wrap gap-2">
-          {TECH_STACK.map(tech => (
-            <span class="text-xs font-mono px-2 py-1" style="color: var(--text-muted); border: 1px solid var(--subtle-border)">
-              {tech.label}
-            </span>
-          ))}
+          {
+            TECH_STACK.map(tech => (
+              <span
+                class="px-2 py-1 font-mono text-xs"
+                style="color: var(--text-muted); border: 1px solid var(--subtle-border)"
+              >
+                {tech.label}
+              </span>
+            ))
+          }
         </div>
       </div>
     </section>
-
   </main>
   <Footer />
 </Layout>

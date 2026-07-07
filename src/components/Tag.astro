@@ -15,9 +15,9 @@ const { tag, tagName, size = "lg" } = Astro.props;
     href={`/tags/${tag}/`}
     transition:name={tag}
     class:list={[
-      "inline-flex items-center gap-1 font-mono rounded-md bg-accent/10 text-accent ring-1 ring-inset ring-accent/20 hover:bg-accent/20 transition-colors",
-      { "text-xs px-2.5 py-1": size === "sm" },
-      { "text-sm px-3 py-1.5": size === "lg" },
+      "inline-flex items-center gap-1 rounded-md bg-accent/10 font-mono text-accent ring-1 ring-accent/20 transition-colors ring-inset hover:bg-accent/20",
+      { "px-2.5 py-1 text-xs": size === "sm" },
+      { "px-3 py-1.5 text-sm": size === "lg" },
     ]}
   >
     <IconHash

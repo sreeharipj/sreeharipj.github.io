@@ -114,7 +114,8 @@ export const PROJECTS = [
   {
     year: "2025",
     title: "rekd",
-    description: "eBPF-based process anomaly detector. Attaches fentry probes to vfs_write, scores entropy, and SIGKILLs high-entropy writers.",
+    description:
+      "eBPF-based process anomaly detector. Attaches fentry probes to vfs_write, scores entropy, and SIGKILLs high-entropy writers.",
     stack: "Go · eBPF · C",
     link: "https://github.com/SpiderNitt/rekd",
   },
@@ -129,4 +130,3 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/sreeharipj/",
   email: `mailto:${IDENTITY.email}`,
 } as const;
-

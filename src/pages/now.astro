@@ -5,86 +5,141 @@ import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config";
 
 const title = `Now | ${SITE.title}`;
-const description = "What I'm currently focused on - projects, learning, and life.";
+const description =
+  "What I'm currently focused on - projects, learning, and life.";
 ---
 
 <Layout title={title} description={description}>
   <Header activeNav="now" />
-  
+
   <main id="main-content" class="app-layout pt-8 pb-12 sm:pt-16 sm:pb-20">
     <div class="mb-10 text-center sm:text-left">
-      <h1 class="text-4xl font-bold font-serif italic tracking-tight sm:text-5xl border-b border-border pb-4 inline-block pr-12">
-        <span class="text-accent font-sans not-italic font-normal mr-2">/</span>now
+      <h1
+        class="inline-block border-b border-border pr-12 pb-4 font-serif text-4xl font-bold tracking-tight italic sm:text-5xl"
+      >
+        <span class="mr-2 font-sans font-normal text-accent not-italic">/</span
+        >now
       </h1>
-      <p class="mt-4 text-foreground/70 font-sans max-w-2xl">
-        A snapshot of what I'm focused on right now. Reading, thinking, building.
+      <p class="mt-4 max-w-2xl font-sans text-foreground/70">
+        A snapshot of what I'm focused on right now. Reading, thinking,
+        building.
       </p>
     </div>
 
     <!-- Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-min max-w-5xl mx-auto">
-      
+    <div
+      class="mx-auto grid max-w-5xl auto-rows-min grid-cols-1 gap-6 md:grid-cols-12"
+    >
       <!-- Current Projects Box (Large, Primary) -->
-      <div class="md:col-span-8 p-6 sm:p-8 metal-card metal-card-hover bg-noise group">
-        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <div class="font-mono text-xs text-accent uppercase tracking-wider mb-3">Current Projects</div>
-        <h2 class="text-2xl font-serif font-bold mb-4">Building Defense Systems</h2>
+      <div
+        class="metal-card metal-card-hover bg-noise group p-6 sm:p-8 md:col-span-8"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+        >
+        </div>
+        <div
+          class="mb-3 font-mono text-xs tracking-wider text-accent uppercase"
+        >
+          Current Projects
+        </div>
+        <h2 class="mb-4 font-serif text-2xl font-bold">
+          Building Defense Systems
+        </h2>
         <div class="space-y-4">
-          <div class="p-4 rounded-xl bg-background/50 border border-border/50">
-            <h3 class="font-semibold text-lg text-foreground">KubeSiphon</h3>
-            <p class="text-sm text-foreground/70 mt-1">Implementing Per-Pod Policy Routing configurations for Kubernetes environments.</p>
+          <div class="rounded-xl border border-border/50 bg-background/50 p-4">
+            <h3 class="text-lg font-semibold text-foreground">KubeSiphon</h3>
+            <p class="mt-1 text-sm text-foreground/70">
+              Implementing Per-Pod Policy Routing configurations for Kubernetes
+              environments.
+            </p>
           </div>
-          <div class="p-4 rounded-xl bg-background/50 border border-border/50">
-            <h3 class="font-semibold text-lg text-foreground">REKD</h3>
-            <p class="text-sm text-foreground/70 mt-1">Developing an eBPF ransomware detector tracking highly volatile hooking anomalies in real-time.</p>
+          <div class="rounded-xl border border-border/50 bg-background/50 p-4">
+            <h3 class="text-lg font-semibold text-foreground">REKD</h3>
+            <p class="mt-1 text-sm text-foreground/70">
+              Developing an eBPF ransomware detector tracking highly volatile
+              hooking anomalies in real-time.
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Current Focus Box (Tall) -->
-      <div class="md:col-span-4 p-6 sm:p-8 metal-card metal-card-hover bg-noise flex flex-col justify-center transform md:rotate-1 hover:rotate-0 transition-transform">
-        <div class="font-mono text-xs text-accent uppercase tracking-wider mb-3">Deep Divin'</div>
-        <h2 class="text-2xl font-serif font-bold mb-4">C++ Internals</h2>
-        <p class="text-foreground/70 text-sm leading-relaxed mb-6">
-          Stripping away the abstractions to understand memory models, compiler optimizations, and building zero-cost abstractions from the ground up.
+      <div
+        class="metal-card metal-card-hover bg-noise flex transform flex-col justify-center p-6 transition-transform hover:rotate-0 sm:p-8 md:col-span-4 md:rotate-1"
+      >
+        <div
+          class="mb-3 font-mono text-xs tracking-wider text-accent uppercase"
+        >
+          Deep Divin'
+        </div>
+        <h2 class="mb-4 font-serif text-2xl font-bold">C++ Internals</h2>
+        <p class="mb-6 text-sm leading-relaxed text-foreground/70">
+          Stripping away the abstractions to understand memory models, compiler
+          optimizations, and building zero-cost abstractions from the ground up.
         </p>
-        <div class="h-px w-full bg-border my-2"></div>
-        <p class="text-foreground/70 text-sm leading-relaxed mt-4">
-          Also actively leveling up CTF solving methodologies, primarily focusing on binary exploitation and reverse engineering.
+        <div class="my-2 h-px w-full bg-border"></div>
+        <p class="mt-4 text-sm leading-relaxed text-foreground/70">
+          Also actively leveling up CTF solving methodologies, primarily
+          focusing on binary exploitation and reverse engineering.
         </p>
       </div>
 
       <!-- On Rotation Box -->
-      <div class="md:col-span-5 p-6 sm:p-8 metal-card metal-card-hover bg-noise transform md:-rotate-1 hover:rotate-0 transition-transform">
-        <div class="font-mono text-xs text-[#27c93f] uppercase tracking-wider mb-3">On Rotation</div>
-        <h2 class="text-2xl font-serif font-bold mb-4">Eclectic Mix</h2>
-        <p class="text-foreground/70 text-sm leading-relaxed">
-          My playlist is a chronological disaster. I blend highly niche underground tracks with massive mainstream hits without blinking. One minute it's obscure synth-wave, the next it's top-40 pop.
+      <div
+        class="metal-card metal-card-hover bg-noise transform p-6 transition-transform hover:rotate-0 sm:p-8 md:col-span-5 md:-rotate-1"
+      >
+        <div
+          class="mb-3 font-mono text-xs tracking-wider text-[#27c93f] uppercase"
+        >
+          On Rotation
+        </div>
+        <h2 class="mb-4 font-serif text-2xl font-bold">Eclectic Mix</h2>
+        <p class="text-sm leading-relaxed text-foreground/70">
+          My playlist is a chronological disaster. I blend highly niche
+          underground tracks with massive mainstream hits without blinking. One
+          minute it's obscure synth-wave, the next it's top-40 pop.
         </p>
         <div class="mt-6 flex flex-wrap gap-2">
-          <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Underground</span>
-          <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Mainstream</span>
-          <span class="font-mono text-xs bg-accent/10 px-2.5 py-1 rounded-md text-accent ring-1 ring-inset ring-accent/20">Synthwave</span>
+          <span
+            class="rounded-md bg-accent/10 px-2.5 py-1 font-mono text-xs text-accent ring-1 ring-accent/20 ring-inset"
+            >Underground</span
+          >
+          <span
+            class="rounded-md bg-accent/10 px-2.5 py-1 font-mono text-xs text-accent ring-1 ring-accent/20 ring-inset"
+            >Mainstream</span
+          >
+          <span
+            class="rounded-md bg-accent/10 px-2.5 py-1 font-mono text-xs text-accent ring-1 ring-accent/20 ring-inset"
+            >Synthwave</span
+          >
         </div>
       </div>
 
       <!-- Life Box -->
-      <div class="md:col-span-7 p-6 sm:p-8 metal-card metal-card-hover bg-noise">
-        <div class="font-mono text-xs text-[#ffbd2e] uppercase tracking-wider mb-3">Life Status</div>
-        <h2 class="text-2xl font-serif font-bold mb-4">Surviving Academia</h2>
-        <p class="text-foreground/70 text-sm leading-relaxed mb-4">
-          Currently navigating continuous assessments in rigorous coursework. It's a balancing act between deep technical research and passing exams.
+      <div
+        class="metal-card metal-card-hover bg-noise p-6 sm:p-8 md:col-span-7"
+      >
+        <div
+          class="mb-3 font-mono text-xs tracking-wider text-[#ffbd2e] uppercase"
+        >
+          Life Status
+        </div>
+        <h2 class="mb-4 font-serif text-2xl font-bold">Surviving Academia</h2>
+        <p class="mb-4 text-sm leading-relaxed text-foreground/70">
+          Currently navigating continuous assessments in rigorous coursework.
+          It's a balancing act between deep technical research and passing
+          exams.
         </p>
-        <ul class="space-y-2 mt-4">
+        <ul class="mt-4 space-y-2">
           <li class="flex items-center text-sm text-foreground/80">
-            <span class="text-accent mr-2">→</span> Control Systems
+            <span class="mr-2 text-accent">→</span> Control Systems
           </li>
           <li class="flex items-center text-sm text-foreground/80">
-            <span class="text-accent mr-2">→</span> Numerical Methods
+            <span class="mr-2 text-accent">→</span> Numerical Methods
           </li>
         </ul>
       </div>
-
     </div>
   </main>
   <Footer />

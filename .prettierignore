@@ -12,3 +12,9 @@
 !.prettierrc
 !eslint.config.js
 !README.md
+
+# ...but never touch authored prose. This is the content/code boundary:
+# format & lint code freely, Obsidian-written markdown stays byte-for-byte
+# as authored (protects ![[embeds]] and any Obsidian-specific syntax).
+/src/data/blog/
+/src/pages/about.md
