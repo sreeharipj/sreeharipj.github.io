@@ -1,4 +1,5 @@
 import { defineConfig, envField, fontProviders } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
@@ -16,7 +17,11 @@ export default defineConfig({
   site: SITE.website,
   integrations: [],
 
+  // Astro 7 makes Sätteri the default Markdown processor. Opt back into the
+  // unified() (remark/rehype) pipeline so the remark plugins and shikiConfig
+  // below keep working unchanged.
   markdown: {
+    processor: unified(),
     remarkPlugins: [
       remarkObsidianImage,
       remarkToc,
