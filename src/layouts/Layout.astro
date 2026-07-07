@@ -67,18 +67,13 @@ const structuredData = {
     <meta name="generator" content={Astro.generator} />
 
     <!-- Load Font -->
-    <Font
-      cssVariable="--font-instrument-serif"
-      preload={[{ subset: "latin", weight: 400, style: "italic" }]}
-    />
-    <Font
-      cssVariable="--font-space-grotesk"
-      preload={[{ subset: "latin", weight: 400, style: "normal" }]}
-    />
-    <Font
-      cssVariable="--font-ibm-plex-mono"
-      preload={[{ subset: "latin", weight: 400, style: "normal" }]}
-    />
+    <!-- Only preload Space Grotesk 400 — it is the body font and the LCP
+         element (the intro paragraph). Preloading it alone keeps the critical
+         path clear; the serif h1 and mono labels use font-display: swap with
+         metric-matched fallbacks (so no CLS) and load at normal priority. -->
+    <Font cssVariable="--font-instrument-serif" />
+    <Font cssVariable="--font-space-grotesk" preload />
+    <Font cssVariable="--font-ibm-plex-mono" />
 
     <!-- General Meta Tags -->
     <title>{title}</title>

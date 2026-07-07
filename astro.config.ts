@@ -17,6 +17,13 @@ export default defineConfig({
   site: SITE.website,
   integrations: [],
 
+  // Inline all CSS into the document <head> so there is no render-blocking
+  // stylesheet request on the critical path. The site's total CSS is small
+  // (~12 KB), and Astro's default "auto" only inlines sheets under 4 KB.
+  build: {
+    inlineStylesheets: "always",
+  },
+
   // Astro 7 makes Sätteri the default Markdown processor. Opt back into the
   // unified() (remark/rehype) pipeline so the remark plugins and shikiConfig
   // below keep working unchanged.
