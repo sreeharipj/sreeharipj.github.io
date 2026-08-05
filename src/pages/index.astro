@@ -9,9 +9,9 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import { getPath } from "@/utils/getPath";
 import {
   IDENTITY,
-  TECH_STACK,
   CURRENT_STATUS,
   PROJECTS,
+  DISCLOSURES,
   SOCIAL_LINKS,
   SITE,
 } from "@/config";
@@ -120,6 +120,80 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
           </div>
         </div>
       </div>
+    </section>
+
+    <hr style="border-color: var(--hr-color)" />
+
+    <!-- ─── DISCLOSURES TABLE ────────────────── -->
+    <section class="py-10">
+      <h2
+        class="mb-6 font-mono text-xs tracking-widest uppercase"
+        style="color: var(--text-faint)"
+      >
+        Disclosures
+      </h2>
+
+      <!-- Mobile: stacked cards -->
+      <div class="space-y-6 sm:hidden">
+        {
+          DISCLOSURES.map(item => (
+            <div style="border-bottom: 1px solid var(--subtle-border); padding-bottom: 1.25rem">
+              <div class="mb-1 flex items-baseline gap-3">
+                <span
+                  class="font-mono text-xs"
+                  style="color: var(--text-faint)"
+                >
+                  {item.year}
+                </span>
+                <a
+                  href={item.link}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  class="prose-link text-sm font-medium"
+                >
+                  {item.title}
+                </a>
+              </div>
+              <p
+                class="text-xs leading-relaxed"
+                style="color: var(--text-muted)"
+              >
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Desktop: table -->
+      <table class="research-table hidden sm:table">
+        <thead>
+          <tr>
+            <th class="col-year">Year</th>
+            <th class="col-title">Finding</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            DISCLOSURES.map(item => (
+              <tr>
+                <td class="col-year">{item.year}</td>
+                <td class="col-title">
+                  <a
+                    href={item.link}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                  >
+                    {item.title}
+                  </a>
+                </td>
+                <td class="col-desc">{item.description}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </section>
 
     <hr style="border-color: var(--hr-color)" />
@@ -249,30 +323,6 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
           All technical writing
           <IconArrowRight class="inline-block rtl:-rotate-180" />
         </LinkButton>
-      </div>
-    </section>
-
-    <hr style="border-color: var(--hr-color)" />
-
-    <!-- ─── TECH ──────────────────────────────────────────── -->
-    <section class="py-10">
-      <h2
-        class="mb-4 font-mono text-xs tracking-widest uppercase"
-        style="color: var(--text-faint)"
-      >
-        Tools
-      </h2>
-      <div class="flex flex-wrap gap-3">
-        {
-          TECH_STACK.map(tech => (
-            <span
-              class="px-2 py-1 font-mono text-xs"
-              style="color: var(--text-muted); border: 1px solid var(--subtle-border)"
-            >
-              {tech.label}
-            </span>
-          ))
-        }
       </div>
     </section>
   </main>

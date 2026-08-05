@@ -7,10 +7,9 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import { getPath } from "@/utils/getPath";
 import {
   IDENTITY,
-  TECH_STACK,
   CURRENT_STATUS,
-  FOCUS_AREAS,
   PROJECTS,
+  DISCLOSURES,
   SOCIAL_LINKS,
   SITE,
 } from "@/config";
@@ -109,25 +108,40 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
 
       <hr style="border-color: var(--hr-color); margin-bottom: 2.5rem" />
 
-      <!-- What I focus on -->
+      <!-- Disclosures -->
       <div class="mb-10">
         <p
           class="mb-4 font-mono text-xs tracking-widest uppercase"
           style="color: var(--text-faint)"
         >
-          Focus
+          Disclosures
         </p>
-        <div class="space-y-4">
+        <div class="space-y-5">
           {
-            FOCUS_AREAS.map(area => (
-              <div class="flex gap-3 text-sm">
-                <span class="w-8 shrink-0 text-base">{area.emoji}</span>
-                <div>
-                  <span class="font-medium" style="color: var(--foreground)">
-                    {area.title}
+            DISCLOSURES.map(item => (
+              <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--subtle-border)">
+                <div class="mb-1 flex items-baseline gap-3">
+                  <span
+                    class="font-mono text-xs"
+                    style="color: var(--text-faint)"
+                  >
+                    {item.year}
                   </span>
-                  <span style="color: var(--text-muted)"> — {area.short}</span>
+                  <a
+                    href={item.link}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    class="prose-link text-sm font-medium"
+                  >
+                    {item.title}
+                  </a>
                 </div>
+                <p
+                  class="text-xs leading-relaxed"
+                  style="color: var(--text-muted)"
+                >
+                  {item.description}
+                </p>
               </div>
             ))
           }
@@ -219,29 +233,6 @@ const recentPosts = sortedPosts.slice(0, SITE.postPerIndex).map(post => ({
         </div>
       </div>
 
-      <hr style="border-color: var(--hr-color); margin-bottom: 2.5rem" />
-
-      <!-- Tools -->
-      <div>
-        <p
-          class="mb-4 font-mono text-xs tracking-widest uppercase"
-          style="color: var(--text-faint)"
-        >
-          Tools
-        </p>
-        <div class="flex flex-wrap gap-2">
-          {
-            TECH_STACK.map(tech => (
-              <span
-                class="px-2 py-1 font-mono text-xs"
-                style="color: var(--text-muted); border: 1px solid var(--subtle-border)"
-              >
-                {tech.label}
-              </span>
-            ))
-          }
-        </div>
-      </div>
     </section>
   </main>
   <Footer />

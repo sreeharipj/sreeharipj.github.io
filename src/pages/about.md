@@ -3,21 +3,8 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-I am Sreehari, a systems security researcher and kernel engineer. My work focuses on building high-performance security primitives, primarily using eBPF, C, and Go.
+I'm a third-year engineering student at NIT Trichy. Most of what I do starts the same way: pick a mechanism, form a hypothesis about how it behaves, and test it until it breaks. I direct LLMs heavily to cover ground — that's part of how I work, not incidental to it.
 
-I am obsessed with the intersection of kernel internals and offensive security—specifically how we can leverage modern kernel features to build invisible, near-zero overhead defense mechanisms.
+Right now that's two kinds of output: security findings — unauthenticated cloud storage, dangling DNS, a protocol-conformance bug found by fuzzing — and tooling for recovering structure from stripped Rust binaries (unhusk, winnow, cgumap), built for malware analysis rather than general reverse engineering.
 
-### What I do
-- **Kernel Engineering**: Tracing and intercepting syscalls using eBPF for behavioral analysis.
-- **Security Research**: Identifying and remediating architectural vulnerabilities in cloud-native infrastructure.
-- **Tooling**: Writing high-performance security agents that don't kill the machine's performance.
-
-### Current Interests
-- eBPF-based malware detection
-- Hypervisor-level security
-- Post-quantum cryptography infrastructure
-- Hardening CI/CD pipelines against supply-chain attacks
-
----
-
-*“The best way to secure a system is to understand how to break it.”*
+Findings and projects, with what they actually found, are on the [home page](/).

@@ -5,8 +5,8 @@ export const SITE = {
   website: "https://sreeharipj.github.io/",
   author: "Sreehari",
   profile: "https://github.com/sreeharipj",
-  desc: "Systems Security Researcher & Kernel Engineer.",
-  title: "Sreehari | Systems Security",
+  desc: "Third-year engineering student at NIT Trichy — security findings and Rust binary-analysis tooling, written up as they happen.",
+  title: "Sreehari P J",
   ogImage: "og.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
@@ -34,17 +34,17 @@ export const IDENTITY = {
   handle: "@sr33hari",
 
   /** Your role title */
-  role: "Security Researcher & Systems Student",
+  role: "Third-year engineering student, NIT Trichy",
 
   /** One-liner under the name in the hero */
-  heroTagline: "Security Researcher & Systems Student.",
+  heroTagline: "Third-year engineering student, NIT Trichy.",
 
   /** Longer sentence shown under tagline */
   heroSubtext:
-    "Offensive security enthusiast pivoting to low-level systems engineering. Currently exploring Linux Kernel internals and eBPF to build better defensive tooling.",
+    "I pick a mechanism, form a hypothesis, and test it until it breaks — directing LLMs heavily to cover ground.",
 
   /** Full bio for About Me card & /hi page */
-  bio: "Offensive security enthusiast pivoting to low-level systems engineering. Currently exploring Linux Kernel internals and eBPF to build better defensive tooling. I enjoy reading papers, breaking things, and occasionally writing about what I find.",
+  bio: "Third-year engineering student at NIT Trichy. My process doesn't change with the subject: pick a mechanism, form a hypothesis about how it behaves, test it until it breaks. I direct LLMs heavily to cover ground — that's a tool I use, not something I hide. Below: a few disclosed findings, and tooling for recovering structure from stripped Rust binaries.",
 
   /** Contact email */
   email: "sreehari.nitt@gmail.com",
@@ -55,55 +55,8 @@ export const IDENTITY = {
 //  Update these regularly to reflect what you're up to
 // ============================================================
 export const CURRENT_STATUS = [
-  { label: "Reading", value: "Linux Kernel Development — Robert Love" },
-  { label: "Building", value: "eBPF-based process anomaly detector" },
-  { label: "Learning", value: "Rust for systems programming" },
+  { label: "Building", value: "Rust reverse-engineering tooling — unhusk, winnow, cgumap" },
   { label: "Location", value: "Kerala, India" },
-] as const;
-
-// ============================================================
-//  TECH STACK — Language/tool pills
-// ============================================================
-export const TECH_STACK = [
-  { label: "C/C++", dotColor: "#888" },
-  { label: "Go", dotColor: "#888" },
-  { label: "Rust", dotColor: "#888" },
-  { label: "eBPF", dotColor: "#888" },
-  { label: "Linux Kernel", dotColor: "#888" },
-] as const;
-
-// ============================================================
-//  FOCUS AREAS — "What I do" section
-// ============================================================
-export const FOCUS_AREAS = [
-  {
-    emoji: "🔬",
-    title: "Kernel Engineering",
-    short: "Tracing & intercepting syscalls with eBPF for behavioral analysis.",
-    long: "eBPF probes, kernel modules, and syscall interception for OS-level behavioral analysis.",
-  },
-  {
-    emoji: "🛡️",
-    title: "Security Research",
-    short: "Finding & remediating architectural vulnerabilities.",
-    long: "Identifying and remediating architectural vulnerabilities — from cloud infrastructure to IDOR disclosures.",
-  },
-  {
-    emoji: "⚙️",
-    title: "Systems Tooling",
-    short: "Writing security tooling with a focus on low overhead.",
-    long: "Security agents and CLI tooling built for minimal performance cost.",
-  },
-] as const;
-
-// ============================================================
-//  CURRENT INTERESTS
-// ============================================================
-export const INTERESTS = [
-  "eBPF-based process anomaly detection",
-  "Hypervisor-level security primitives",
-  "Post-quantum cryptography",
-  "Supply-chain hardening in CI/CD",
 ] as const;
 
 // ============================================================
@@ -112,12 +65,59 @@ export const INTERESTS = [
 // ============================================================
 export const PROJECTS = [
   {
+    year: "2026",
+    title: "winnow",
+    description:
+      "Builds a YARA-X rule for a stripped Rust malware sample from unhusk's output — one binary in, one rule out. Zero false positives across three rules on a 76-binary held-out corpus.",
+    stack: "Rust",
+    link: "https://github.com/sreeharipj/winnow",
+  },
+  {
+    year: "2026",
+    title: "unhusk",
+    description:
+      "Finds the author-written functions in a stripped Rust binary using panic metadata — no symbols or debug info needed. Tested against real Rust malware, including Akira, KrustyLoader, and BlackCat/ALPHV.",
+    stack: "Rust",
+    link: "https://github.com/sreeharipj/unhusk",
+  },
+  {
     year: "2025",
     title: "rekd",
     description:
-      "eBPF-based process anomaly detector. Attaches fentry probes to vfs_write, scores entropy, and SIGKILLs high-entropy writers.",
+      "eBPF-based ransomware detector, built with Spider R&D's cybersecurity team. Fentry hooks on vfs_write and vfs_writev score Shannon entropy on sampled write payloads; an alert fires once a process crosses both a 70% high-entropy-ratio gate and a 1MB cumulative-volume gate. Detects and logs — doesn't kill the process. Stopped there; going further meant a second detection signal beyond entropy alone.",
     stack: "Go · eBPF · C",
     link: "https://github.com/SpiderNitt/rekd",
+  },
+] as const;
+
+// ============================================================
+//  DISCLOSURES — Things I've found, not built
+//  external: true opens the link in a new tab (used for anything off-site)
+// ============================================================
+export const DISCLOSURES = [
+  {
+    year: "2026",
+    title: "pylsqpack (aiortc)",
+    description:
+      "Fuzzed pylsqpack, aiortc's QPACK/HTTP-3 header-compression library, against RFC 9114. An empty header name reached realloc(ptr, 0) and aborted the process. Fix merged upstream.",
+    link: "https://github.com/aiortc/pylsqpack/pull/53",
+    external: true,
+  },
+  {
+    year: "2025",
+    title: "knot.dating — S3 bucket exposure",
+    description:
+      "Found an unauthenticated, publicly listable S3 bucket behind a dating app's CDN, exposing roughly 150GB: profile photos, database snapshots, invoice PII. Reported; access was locked down.",
+    link: "/posts/150gb-data-leak-bucket",
+    external: false,
+  },
+  {
+    year: "2025",
+    title: "nitt.edu — dangling DNS",
+    description:
+      "Found a forgotten institute subdomain repointed to a reassigned IP serving a gambling site — dangling DNS from lapsed hosting. Reported via Spider R&D; the record was fixed.",
+    link: "/posts/dns-dangling-pointers",
+    external: false,
   },
 ] as const;
 
