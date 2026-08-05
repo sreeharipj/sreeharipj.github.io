@@ -30,7 +30,7 @@ export const GET: APIRoute = async () => {
 
   const content = `# ${IDENTITY.fullName}
 
-> ${IDENTITY.heroTagline} ${IDENTITY.heroSubtext}
+> ${IDENTITY.heroSubtext}
 
 ${IDENTITY.bio}
 

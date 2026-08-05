@@ -10,7 +10,7 @@ tags:
   - Linux Kernel
   - Security Research
   - Spider R&D
-description: "How Spider's cybersecurity team built REKD — an eBPF engine that hooks the VFS layer, scores write entropy in real-time, and kills ransomware processes before encryption finishes."
+description: "How Spider's cybersecurity team built REKD — an eBPF engine that hooks the VFS layer and scores write entropy in real time to detect ransomware before encryption finishes."
 ---
 
 ## It Started With a Simple Question

@@ -41,10 +41,10 @@ export const IDENTITY = {
 
   /** Longer sentence shown under tagline */
   heroSubtext:
-    "I pick a mechanism, form a hypothesis, and test it until it breaks — directing LLMs heavily to cover ground.",
+    "Third-year engineering student at NIT Trichy. I direct LLMs heavily to cover ground.",
 
   /** Full bio for About Me card & /hi page */
-  bio: "Third-year engineering student at NIT Trichy. My process doesn't change with the subject: pick a mechanism, form a hypothesis about how it behaves, test it until it breaks. I direct LLMs heavily to cover ground — that's a tool I use, not something I hide. Below: a few disclosed findings, and tooling for recovering structure from stripped Rust binaries.",
+  bio: "Third-year engineering student at NIT Trichy. I direct LLMs heavily to cover ground.",
 
   /** Contact email */
   email: "sreehari.nitt@gmail.com",
@@ -56,7 +56,7 @@ export const IDENTITY = {
 // ============================================================
 export const CURRENT_STATUS = [
   { label: "Building", value: "Rust reverse-engineering tooling — unhusk, winnow, cgumap" },
-  { label: "Location", value: "Kerala, India" },
+  { label: "Location", value: "Tamil Nadu, India (Based in Kochi, Kerala)" },
 ] as const;
 
 // ============================================================
@@ -76,7 +76,7 @@ export const PROJECTS = [
     year: "2026",
     title: "unhusk",
     description:
-      "Finds the author-written functions in a stripped Rust binary using panic metadata — no symbols or debug info needed. Tested against real Rust malware, including Akira, KrustyLoader, and BlackCat/ALPHV.",
+      "Finds the author-written functions in a stripped Rust binary using panic metadata. Tested against real Rust malware, including Akira, KrustyLoader, and BlackCat/ALPHV.",
     stack: "Rust",
     link: "https://github.com/sreeharipj/unhusk",
   },
@@ -84,7 +84,7 @@ export const PROJECTS = [
     year: "2025",
     title: "rekd",
     description:
-      "eBPF-based ransomware detector, built with Spider R&D's cybersecurity team. Fentry hooks on vfs_write and vfs_writev score Shannon entropy on sampled write payloads; an alert fires once a process crosses both a 70% high-entropy-ratio gate and a 1MB cumulative-volume gate. Detects and logs — doesn't kill the process. Stopped there; going further meant a second detection signal beyond entropy alone.",
+      "eBPF-based ransomware detector, built with Spider R&D's cybersecurity team. Fentry hooks on vfs_write and vfs_writev score Shannon entropy on sampled write payloads; an alert fires once a process crosses both a 70% high-entropy-ratio gate and a 1MB cumulative-volume gate. Detection only — process kill lands once we're satisfied with the false-positive rate. v1 done.",
     stack: "Go · eBPF · C",
     link: "https://github.com/SpiderNitt/rekd",
   },
@@ -99,7 +99,7 @@ export const DISCLOSURES = [
     year: "2026",
     title: "pylsqpack (aiortc)",
     description:
-      "Fuzzed pylsqpack, aiortc's QPACK/HTTP-3 header-compression library, against RFC 9114. An empty header name reached realloc(ptr, 0) and aborted the process. Fix merged upstream.",
+      "Double free in pylsqpack, aiortc's QPACK library. Found by fuzzing. Fix merged upstream.",
     link: "https://github.com/aiortc/pylsqpack/pull/53",
     external: true,
   },
