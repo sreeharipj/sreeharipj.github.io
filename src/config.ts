@@ -41,10 +41,10 @@ export const IDENTITY = {
 
   /** Longer sentence shown under tagline */
   heroSubtext:
-    "Third-year engineering student at NIT Trichy. I direct LLMs heavily to cover ground.",
+    "Third-year engineering student at NIT Trichy. Security findings, and tooling for pulling structure out of stripped Rust binaries.",
 
   /** Full bio for About Me card & /hi page */
-  bio: "Third-year engineering student at NIT Trichy. I direct LLMs heavily to cover ground.",
+  bio: "Third-year engineering student at NIT Trichy. Security findings, and tooling for pulling structure out of stripped Rust binaries.",
 
   /** Contact email */
   email: "sreehari.nitt@gmail.com",
@@ -56,7 +56,7 @@ export const IDENTITY = {
 // ============================================================
 export const CURRENT_STATUS = [
   { label: "Building", value: "Rust reverse-engineering tooling — unhusk, winnow, cgumap" },
-  { label: "Location", value: "Tamil Nadu, India (Based in Kochi, Kerala)" },
+  { label: "Location", value: "Kerala, India" },
 ] as const;
 
 // ============================================================
